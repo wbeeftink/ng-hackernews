@@ -1,0 +1,15 @@
+<blockquote>
+
+  <p>
+    <span>User: <a [routerLink]="['/user', comment.user]">{{ comment.user }}</a></span> |
+    <span [title]="comment.time">{{ comment.time_ago }}</span>
+  </p>
+
+  {{ comment.content }}
+
+  <app-comment
+    *ngFor="let comment of comment.comments"
+    [comment]="comment">
+  </app-comment>
+
+</blockquote>

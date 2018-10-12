@@ -1,0 +1,11 @@
+<div>
+  <h2>{{ item?.title }}</h2>
+  {{ item?.content }}
+</div>
+
+<hr>
+
+<h2>{{ item?.comments_count }} comments</h2>
+<app-comment
+  *ngFor="let comment of item?.comments"
+  [comment]="comment"></app-comment>
