@@ -5,7 +5,7 @@
     <span [title]="comment.time">{{ comment.time_ago }}</span>
   </p>
 
-  {{ comment.content }}
+  <div [innerHTML]="comment.content"></div>
 
   <app-comment
     *ngFor="let comment of comment.comments"
