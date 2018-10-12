@@ -7,13 +7,7 @@ import { FeedItem } from '../interfaces/feed-item';
 import { Item } from '../interfaces/item';
 import { User } from '../interfaces/user';
 
-const TOP_API: string = 'https://api.hnpwa.com/v0/news';
-const NEW_API: string = 'https://api.hnpwa.com/v0/newest';
-const ASK_API: string = '	https://api.hnpwa.com/v0/ask';
-const SHOW_API: string = '	https://api.hnpwa.com/v0/show';
-const JOBS_API: string = 'https://api.hnpwa.com/v0/jobs';
-const ITEM_API: string = 'https://api.hnpwa.com/v0/item';
-const USER_API: string = 'https://api.hnpwa.com/v0/user';
+const API: string = 'http://node-hnapi.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'
@@ -22,30 +16,30 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getTopItems(page: number = 1): Observable<FeedItem[]> {
-    return this.http.get<FeedItem[]>(`${TOP_API}/${page}.json`);
+    return this.http.get<FeedItem[]>(`${API}/news?page=${page}`);
   }
 
   getNewItems(page: number = 1): Observable<FeedItem[]> {
-    return this.http.get<FeedItem[]>(`${NEW_API}/${page}.json`);
+    return this.http.get<FeedItem[]>(`${API}/newest?page=${page}`);
   }
 
   getShowItems(page: number = 1): Observable<FeedItem[]> {
-    return this.http.get<FeedItem[]>(`${SHOW_API}/${page}.json`);
+    return this.http.get<FeedItem[]>(`${API}/show?page=${page}`);
   }
 
   getAskItems(page: number = 1): Observable<FeedItem[]> {
-    return this.http.get<FeedItem[]>(`${ASK_API}/${page}.json`);
+    return this.http.get<FeedItem[]>(`${API}/ask?page=${page}`);
   }
 
   getJobsItems(page: number = 1): Observable<FeedItem[]> {
-    return this.http.get<FeedItem[]>(`${JOBS_API}/${page}.json`);
+    return this.http.get<FeedItem[]>(`${API}/jobs?page=${page}`);
   }
 
   getItem(id: number): Observable<Item> {
-    return this.http.get<Item>(`${ITEM_API}/${id}.json`);
+    return this.http.get<Item>(`${API}/item/${id}`);
   }
 
   getUser(name: number): Observable<User> {
-    return this.http.get<User>(`${USER_API}/${name}.json`);
+    return this.http.get<User>(`${API}/user/${name}`);
   }
 }
