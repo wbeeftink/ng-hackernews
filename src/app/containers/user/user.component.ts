@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { User } from '../../interfaces/user';
 import { ApiService } from '../../services/api.service';
@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params: ParamMap) => {
       this.apiService
         .getUser(params['name'])
         .subscribe((data: User) => this.user = data);

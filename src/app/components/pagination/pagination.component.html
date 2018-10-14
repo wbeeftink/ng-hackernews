@@ -1,0 +1,13 @@
+<button
+  (click)="onPreviousClick()"
+  [disabled]="disablePrevious()">
+  Previous
+</button>
+
+<p>{{ currentPage }} / {{ maxPages }}</p>
+
+<button
+  (click)="onNextClick()"
+  [disabled]="disableNext()">
+  Next
+</button>

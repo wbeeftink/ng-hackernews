@@ -1,3 +1,9 @@
+<app-pagination
+  (previous)="goToPage($event)"
+  (next)="goToPage($event)"
+  [currentPage]="startPage"
+  [maxPages]="maxPages"></app-pagination>
+
 <app-feed-item
   *ngFor="let item of items"
   [item]="item">

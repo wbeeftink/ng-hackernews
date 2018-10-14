@@ -18,17 +18,29 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components//header/header.component';
 import { FeedItemComponent } from './components/feed-item/feed-item.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 // Routes
 const routes: Routes = [
   { path: '', redirectTo: 'top', pathMatch: 'full' },
+
+  // List views
   { path: 'top', component: TopComponent },
+  { path: 'top/:page', component: TopComponent },
   { path: 'new', component: NewComponent },
+  { path: 'new/:page', component: NewComponent },
   { path: 'show', component: ShowComponent },
+  { path: 'show/:page', component: ShowComponent },
   { path: 'ask', component: AskComponent },
+  { path: 'ask/:page', component: AskComponent },
   { path: 'jobs', component: JobsComponent },
+  { path: 'jobs/:page', component: JobsComponent },
+
+  // Detail views
   { path: 'item/:id', component: ItemComponent },
   { path: 'user/:name', component: UserComponent },
+
+  // Not found
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -45,7 +57,8 @@ const routes: Routes = [
     JobsComponent,
     AskComponent,
     UserComponent,
-    CommentComponent
+    CommentComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
