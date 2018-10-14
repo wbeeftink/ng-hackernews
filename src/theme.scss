@@ -1,0 +1,11 @@
+@include mat-core();
+
+$primary: mat-palette($mat-deep-orange);
+$accent: mat-palette($mat-teal);
+
+$theme: mat-light-theme(
+  $primary,
+  $accent
+);
+
+@include angular-material-theme($theme);

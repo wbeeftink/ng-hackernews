@@ -1,11 +1,19 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/theming';
+@import 'theme';
 
 html, body {
   min-height: 100%;
 }
 
 body {
-  background-color: #eee;
   font-family: 'Roboto', sans-serif;
   padding: calc(5vh + 64px) 5vw 5vw 5vw;
+}
+
+a {
+  color: mat-color($accent, default);
+
+  mat-card-subtitle & {
+    color: inherit;
+  }
 }

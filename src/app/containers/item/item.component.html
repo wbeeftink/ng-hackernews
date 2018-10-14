@@ -1,11 +1,29 @@
-<div>
-  <h2>{{ item?.title }}</h2>
+<mat-card class="item">
+
+  <mat-card-title>
+    {{ item?.title }}
+  </mat-card-title>
+
+  <mat-card-subtitle *ngIf="item?.type !== 'job'">
+    <span *ngIf="item?.user">By <a [routerLink]="['/user', item?.user]">{{ item?.user }}</a> | </span>
+    <span *ngIf="item?.points">{{ item?.points }} points | </span>
+    <span [title]="item?.time">{{ item?.time_ago }}</span>
+  </mat-card-subtitle>
+
+  <mat-card-subtitle *ngIf="item?.type === 'job'">
+    <span [title]="item?.time">{{ item?.time_ago }}</span>
+  </mat-card-subtitle>
+
   <div [innerHTML]="item?.content"></div>
-</div>
 
-<hr>
+</mat-card>
 
-<h2>{{ item?.comments_count }} comments</h2>
-<app-comment
-  *ngFor="let comment of item?.comments"
-  [comment]="comment"></app-comment>
+<mat-card class="comments">
+
+  <h2>{{ item?.comments_count }} comments</h2>
+  <app-comment
+    *ngFor="let comment of item?.comments"
+    [comment]="comment">
+  </app-comment>
+
+</mat-card>

@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
 
 .app-header {
-  @include mat-elevation(6);
+  @include mat-elevation(8);
   left: 0;
   position: fixed;
   width: 100%;
