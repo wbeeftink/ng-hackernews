@@ -7,7 +7,7 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-show',
   templateUrl: './show.component.html',
-  styleUrls: ['./show.component.css']
+  styleUrls: ['./show.component.scss']
 })
 export class ShowComponent implements OnInit {
   items: FeedItem[];

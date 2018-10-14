@@ -7,7 +7,7 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-ask',
   templateUrl: './ask.component.html',
-  styleUrls: ['./ask.component.css']
+  styleUrls: ['./ask.component.scss']
 })
 export class AskComponent implements OnInit {
   items: FeedItem[];
