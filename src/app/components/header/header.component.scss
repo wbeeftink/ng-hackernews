@@ -1,3 +1,10 @@
-.active {
-  font-weight: bold;
+@import '~@angular/material/theming';
+
+.app-header {
+  @include mat-elevation(6);
+  left: 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
 }

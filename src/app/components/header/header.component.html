@@ -1,13 +1,16 @@
-<h1>
-  <a routerLink="/">
-    ng-hackernews
-  </a>
-</h1>
-
-<ul>
-  <li *ngFor="let navItem of navItems">
-    <a [routerLink]="navItem.link" routerLinkActive="active">
-      {{ navItem.title }}
-    </a>
-  </li>
-</ul>
+<header class="app-header">
+  <mat-toolbar color="primary">
+    <nav>
+      <a mat-button routerLink="/">
+        ng-hackernews
+      </a>
+      <a
+        *ngFor="let navItem of navItems"
+        [routerLink]="navItem.link"
+        routerLinkActive="active"
+        mat-button>
+        {{ navItem.title }}
+      </a>
+    </nav>
+  </mat-toolbar>
+</header>
