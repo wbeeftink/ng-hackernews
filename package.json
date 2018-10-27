@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href=\"https://wbeeftink.github.io/ng-hackernews/\"",
-    "deploy": "npx ngh --dir=\"dist/ng-hackernews\"",
+    "build": "ng build --prod",
+    "deploy": "ng build --prod --base-href=\"https://wbeeftink.github.io/ng-hackernews/\" && npx ngh --dir=\"dist/ng-hackernews\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
