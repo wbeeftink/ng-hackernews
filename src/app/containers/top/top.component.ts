@@ -1,34 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
-import { FeedItem } from '../../interfaces/feed-item';
+import { BaseListComponent } from '../../components/base-list/base-list.component';
 import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-top',
-  templateUrl: './top.component.html',
-  styleUrls: ['./top.component.scss']
+  templateUrl: '../../components/base-list/base-list.component.html',
+  styleUrls: ['../../components/base-list/base-list.component.scss']
 })
-export class TopComponent implements OnInit {
-  items: FeedItem[];
-  startPage: number;
+export class TopComponent extends BaseListComponent {
   maxPages: number = 10;
+  routeName: string = 'top';
+  routeTitle: string = 'Top';
+  serviceMethod: string = 'getTopItems';
 
   constructor(
-    private apiService: ApiService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit() {
-    this.route.params.subscribe((params: ParamMap) => {
-      this.startPage = params['page'] ? Number(params['page']) : 1;
-      this.apiService.getTopItems(this.startPage)
-        .subscribe((data: FeedItem[]) => this.items = data);
-    });
-  }
-
-  goToPage(page: number) {
-    this.router.navigate(['top', page]);
+    titleService: Title,
+    apiService: ApiService,
+    router: Router,
+    route: ActivatedRoute
+  ) {
+    super(titleService, apiService, router, route);
   }
 }

@@ -1,34 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
-import { FeedItem } from '../../interfaces/feed-item';
+import { BaseListComponent } from '../../components/base-list/base-list.component';
 import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-new',
-  templateUrl: './new.component.html',
-  styleUrls: ['./new.component.scss']
+  templateUrl: '../../components/base-list/base-list.component.html',
+  styleUrls: ['../../components/base-list/base-list.component.scss']
 })
-export class NewComponent implements OnInit {
-  items: FeedItem[];
-  startPage: number;
+export class NewComponent extends BaseListComponent {
   maxPages: number = 10;
+  routeName: string = 'new';
+  routeTitle: string = 'New';
+  serviceMethod: string = 'getNewItems';
 
   constructor(
-    private apiService: ApiService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit() {
-    this.route.params.subscribe((params: ParamMap) => {
-      this.startPage = params['page'] ? Number(params['page']) : 1;
-      this.apiService.getNewItems(this.startPage)
-        .subscribe((data: FeedItem[]) => this.items = data);
-    });
-  }
-
-  goToPage(page: number) {
-    this.router.navigate(['new', page]);
+    titleService: Title,
+    apiService: ApiService,
+    router: Router,
+    route: ActivatedRoute
+  ) {
+    super(titleService, apiService, router, route);
   }
 }

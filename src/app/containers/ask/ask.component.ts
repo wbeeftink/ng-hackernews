@@ -1,34 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
+import { BaseListComponent } from '../../components/base-list/base-list.component';
 import { FeedItem } from '../../interfaces/feed-item';
 import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-ask',
-  templateUrl: './ask.component.html',
-  styleUrls: ['./ask.component.scss']
+  templateUrl: '../../components/base-list/base-list.component.html',
+  styleUrls: ['../../components/base-list/base-list.component.scss']
 })
-export class AskComponent implements OnInit {
-  items: FeedItem[];
-  startPage: number;
+export class AskComponent extends BaseListComponent {
   maxPages: number = 2;
+  routeName: string = 'ask';
+  routeTitle: string = 'Ask';
+  serviceMethod: string = 'getAskItems';
 
   constructor(
-    private apiService: ApiService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
-
-  ngOnInit() {
-    this.route.params.subscribe((params: ParamMap) => {
-      this.startPage = params['page'] ? Number(params['page']) : 1;
-      this.apiService.getAskItems(this.startPage)
-        .subscribe((data: FeedItem[]) => this.items = data);
-    });
-  }
-
-  goToPage(page: number) {
-    this.router.navigate(['ask', page]);
+    titleService: Title,
+    apiService: ApiService,
+    router: Router,
+    route: ActivatedRoute
+  ) {
+    super(titleService, apiService, router, route);
   }
 }

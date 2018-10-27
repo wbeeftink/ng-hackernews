@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { User } from '../../interfaces/user';
 import { ApiService } from '../../services/api.service';
@@ -13,6 +14,7 @@ export class UserComponent implements OnInit {
   user: User;
 
   constructor(
+    private titleService: Title,
     private apiService: ApiService,
     private route: ActivatedRoute
   ) {}
@@ -21,7 +23,10 @@ export class UserComponent implements OnInit {
     this.route.params.subscribe((params: ParamMap) => {
       this.apiService
         .getUser(params['name'])
-        .subscribe((data: User) => this.user = data);
+        .subscribe((data: User) => {
+          this.user = data;
+          this.titleService.setTitle(`NgHackerNews | ${data.id}`);
+        });
     });
   }
 }

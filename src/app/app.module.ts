@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 // Container components
 import { TopComponent } from './containers/top/top.component';
@@ -21,7 +22,8 @@ import { NotFoundComponent } from './containers/not-found/not-found.component';
 
 // Components
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components//header/header.component';
+import { BaseListComponent } from './components/base-list/base-list.component';
+import { HeaderComponent } from './components/header/header.component';
 import { FeedItemComponent } from './components/feed-item/feed-item.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
@@ -64,7 +66,8 @@ const routes: Routes = [
     AskComponent,
     UserComponent,
     CommentComponent,
-    PaginationComponent
+    PaginationComponent,
+    BaseListComponent
   ],
   imports: [
     BrowserModule,
@@ -73,9 +76,10 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [Title],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

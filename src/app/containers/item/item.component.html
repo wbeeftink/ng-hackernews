@@ -14,13 +14,16 @@
     <span [title]="item?.time">{{ item?.time_ago }}</span>
   </mat-card-subtitle>
 
-  <div [innerHTML]="item?.content"></div>
+  <div *ngIf="item.content" [innerHTML]="item.content"></div>
 
 </mat-card>
 
 <mat-card class="comments">
 
-  <h2>{{ item?.comments_count }} comments</h2>
+  <mat-card-title>
+    {{ item?.comments_count }} comments
+  </mat-card-title>
+
   <app-comment
     *ngFor="let comment of item?.comments"
     [comment]="comment">

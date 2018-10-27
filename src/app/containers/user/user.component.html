@@ -1,6 +1,14 @@
-<h1>{{ user?.id }}</h1>
-<p>
-  <span>Karma: {{ user?.karma }}</span> |
-  <span [title]="user?.created_time">Created: {{ user?.created }}</span>
-</p>
-<p>{{ user?.about }}</p>
+<mat-card class="user">
+
+  <mat-card-title>
+    {{ user?.id }}
+  </mat-card-title>
+
+  <mat-card-subtitle>
+    <span>Karma: {{ user?.karma }}</span> |
+    <span [title]="user?.created_time">Created: {{ user?.created }}</span>
+  </mat-card-subtitle>
+
+  <div *ngIf="user.about" [innerHTML]="user.about"></div>
+
+</mat-card>

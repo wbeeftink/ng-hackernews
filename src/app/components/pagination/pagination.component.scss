@@ -1,4 +1,17 @@
+@import '~@angular/material/theming';
+
 :host {
-  display: block;
-  margin-bottom: 2.5vh;
+  @include mat-elevation(1);
+  align-items: center;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.54);
+  display: flex;
+  font-size: 14px;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  height: 64px;
+  top: 64px;
+  width: 100%;
+  z-index: 100;
 }

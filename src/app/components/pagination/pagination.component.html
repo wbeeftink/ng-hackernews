@@ -1,13 +1,15 @@
 <button
+  mat-button
   (click)="onPreviousClick()"
   [disabled]="disablePrevious()">
-  Previous
+  <mat-icon>chevron_left</mat-icon>
 </button>
 
 <span>{{ currentPage }} / {{ maxPages }}</span>
 
 <button
+  mat-button
   (click)="onNextClick()"
   [disabled]="disableNext()">
-  Next
+  <mat-icon>chevron_right</mat-icon>
 </button>
