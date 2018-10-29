@@ -14,7 +14,7 @@
     <span [title]="item?.time">{{ item?.time_ago }}</span>
   </mat-card-subtitle>
 
-  <div *ngIf="item.content" [innerHTML]="item.content"></div>
+  <div *ngIf="item?.content" [innerHTML]="item?.content"></div>
 
 </mat-card>
 
