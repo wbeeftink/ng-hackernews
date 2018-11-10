@@ -1,15 +1,13 @@
-<header class="app-header">
-  <mat-toolbar color="primary">
-    <nav>
-      <a mat-button routerLink="/">
-        ng-hackernews
-      </a>
-      <a
-        *ngFor="let navItem of navItems"
-        [routerLink]="navItem.link"
-        mat-button>
-        {{ navItem.title }}
-      </a>
-    </nav>
-  </mat-toolbar>
-</header>
+<mat-toolbar color="primary">
+  <nav>
+    <a mat-button routerLink="/">
+      ng-hackernews
+    </a>
+    <a
+      *ngFor="let navItem of navItems"
+      [routerLink]="navItem.link"
+      mat-button>
+      {{ navItem.title }}
+    </a>
+  </nav>
+</mat-toolbar>

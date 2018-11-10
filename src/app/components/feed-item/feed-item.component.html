@@ -1,24 +1,22 @@
 <mat-card>
-  <mat-card-header>
 
-    <mat-card-title *ngIf="item.domain">
-      <a [href]="item.url" target="_blank" rel="noopener">{{ item.title }}</a> ({{ item.domain }})
-    </mat-card-title>
+  <mat-card-title *ngIf="item.domain">
+    <a [href]="item.url" target="_blank" rel="noopener">{{ item.title }}</a> ({{ item.domain }})
+  </mat-card-title>
 
-    <mat-card-title *ngIf="!item.domain">
-      <a [routerLink]="['/item', item.id]">{{ item.title }}</a>
-    </mat-card-title>
+  <mat-card-title *ngIf="!item.domain">
+    <a [routerLink]="['/item', item.id]">{{ item.title }}</a>
+  </mat-card-title>
 
-    <mat-card-subtitle *ngIf="item.type !== 'job'">
-      <span *ngIf="item.user">By <a [routerLink]="['/user', item.user]">{{ item.user }}</a> | </span>
-      <span *ngIf="item.points">{{ item.points }} points | </span>
-      <span [title]="item.time">{{ item.time_ago }} | </span>
-      <span><a [routerLink]="['/item', item.id]">{{ item.comments_count }} comments</a></span>
-    </mat-card-subtitle>
+  <mat-card-subtitle *ngIf="item.type !== 'job'">
+    <span *ngIf="item.user">By <a [routerLink]="['/user', item.user]">{{ item.user }}</a> | </span>
+    <span *ngIf="item.points">{{ item.points }} points | </span>
+    <span [title]="item.time">{{ item.time_ago }} | </span>
+    <span><a [routerLink]="['/item', item.id]">{{ item.comments_count }} comments</a></span>
+  </mat-card-subtitle>
 
-    <mat-card-subtitle *ngIf="item.type === 'job'">
-      <span [title]="item.time">{{ item.time_ago }}</span>
-    </mat-card-subtitle>
+  <mat-card-subtitle *ngIf="item.type === 'job'">
+    <span [title]="item.time">{{ item.time_ago }}</span>
+  </mat-card-subtitle>
 
-  </mat-card-header>
 </mat-card>

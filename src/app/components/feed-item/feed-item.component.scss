@@ -1,7 +1,17 @@
-mat-card {
+.mat-card {
   margin-bottom: 1vh;
 }
 
-mat-card-subtitle {
+.mat-card-title {
+  font-size: inherit;
+
+  a {
+    color: inherit;
+    font-weight: normal;
+    text-decoration: none;
+  }
+}
+
+.mat-card-subtitle {
   margin: 0;
 }
