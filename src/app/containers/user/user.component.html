@@ -9,6 +9,6 @@
     <span [title]="user?.created_time">Created: {{ user?.created }}</span>
   </mat-card-subtitle>
 
-  <div *ngIf="user.about" [innerHTML]="user.about"></div>
+  <div *ngIf="user?.about" [innerHTML]="user?.about"></div>
 
 </mat-card>
