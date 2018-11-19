@@ -1,14 +1,43 @@
-<mat-card class="user">
+<div class="container">
 
-  <mat-card-title>
-    {{ user?.id }}
-  </mat-card-title>
+  <mat-card>
 
-  <mat-card-subtitle>
-    <span>Karma: {{ user?.karma }}</span> |
-    <span [title]="user?.created_time">Created: {{ user?.created }}</span>
-  </mat-card-subtitle>
+    <!-- Title -->
+    <mat-card-title>
+      {{ user?.id }}
+    </mat-card-title>
 
-  <div *ngIf="user?.about" [innerHTML]="user?.about"></div>
+    <!-- Subtitle -->
+    <mat-card-subtitle>
+      <span>Karma: {{ user?.karma }}</span> |
+      <span title="Created on {{ user?.created_time | date: dateFormat }}">Created: {{ user?.created }}</span>
+    </mat-card-subtitle>
 
-</mat-card>
+  </mat-card>
+
+  <mat-card>
+
+    <!-- About -->
+    <div *ngIf="user?.about">
+      <h2>About</h2>
+      <div [innerHTML]="user?.about"></div>
+    </div>
+
+    <!-- External links -->
+    <h2>Links</h2>
+    <ul class="links">
+      <li>
+        <a href="https://news.ycombinator.com/submitted?id={{ user?.id }}" target="_blank">
+          Submissions
+        </a>
+      </li>
+      <li>
+        <a href="https://news.ycombinator.com/threads?id={{ user?.id }}" target="_blank">
+          Comments
+        </a>
+      </li>
+    </ul>
+
+  </mat-card>
+
+</div>

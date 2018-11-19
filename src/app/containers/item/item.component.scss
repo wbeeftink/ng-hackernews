@@ -1,7 +1,37 @@
-mat-card-subtitle {
-  margin: 0;
+@import '~@angular/material/theming';
+@import '../../../theme';
+
+.item {
+  padding: 24px;
+
+  .mat-card-title {
+    color: rgba(0, 0, 0, 0.54);
+
+    a {
+      color: rgba(0, 0, 0, 0.87);
+      text-decoration: none;
+    }
+  }
+
+  .mat-card-subtitle {
+    margin: 0;
+
+    span {
+      margin-right: 2px;
+    }
+
+    span + span {
+      margin-left: 2px;
+    }
+  }
 }
 
 .comments {
-  margin-top: 2.5vh;
+  margin-top: 1.5vh;
+  padding: 24px;
+
+  h2 {
+    font-size: inherit;
+    margin: 0 0 1em;
+  }
 }

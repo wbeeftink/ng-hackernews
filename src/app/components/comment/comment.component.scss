@@ -1,4 +1,29 @@
-blockquote {
-  margin: 0;
-  padding: 0;
+.thread .thread {
+  padding-left: 24px;
+}
+
+.comment {
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.title {
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: normal;
+}
+
+span {
+  margin-right: 2px;
+}
+
+span + span {
+  margin-left: 2px;
+}
+
+.content {
+  margin-bottom: 24px;
+
+  ::ng-deep *:last-child {
+    margin-bottom: 0;
+  }
 }

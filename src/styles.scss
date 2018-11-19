@@ -7,13 +7,16 @@ html, body {
 
 body {
   font-family: 'Roboto', sans-serif;
-  padding: calc(3vh + 64px) 6vw 3vh;
+  padding: calc(3vh + 64px) 16px 3vh;
+  margin: 0;
 }
 
 a {
-  color: mat-color($accent, default);
+  color: inherit;
+}
 
-  mat-card-subtitle & {
-    color: inherit;
-  }
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
 }

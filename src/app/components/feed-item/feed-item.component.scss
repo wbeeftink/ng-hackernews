@@ -1,17 +1,40 @@
+@import '~@angular/material/theming';
+@import '../../../theme';
+
 .mat-card {
-  margin-bottom: 1vh;
+  align-items: center;
+  display: flex;
+  padding: 24px 24px 24px 0;
+}
+
+.points {
+  color: mat-color($primary);
+  display: flex;
+  font-size: 20px;
+  font-weight: 500;
+  justify-content: center;
+  width: 90px;
 }
 
 .mat-card-title {
+  color: rgba(0, 0, 0, 0.54);
   font-size: inherit;
+  font-weight: normal;
 
   a {
-    color: inherit;
-    font-weight: normal;
+    color: rgba(0, 0, 0, 0.87);
     text-decoration: none;
   }
 }
 
 .mat-card-subtitle {
   margin: 0;
+
+  span {
+    margin-right: 2px;
+  }
+
+  span + span {
+    margin-left: 2px;
+  }
 }

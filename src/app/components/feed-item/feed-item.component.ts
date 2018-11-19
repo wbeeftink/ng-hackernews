@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 
+import { Config } from '../../config';
 import { FeedItem } from '../../interfaces/feed-item';
 
 @Component({
@@ -9,4 +10,7 @@ import { FeedItem } from '../../interfaces/feed-item';
 })
 export class FeedItemComponent {
   @Input() item: FeedItem;
+  dateFormat = Config.dateFormat;
+  commentsMapping = Config.commentsMapping;
+  pointsMapping = Config.pointsMapping;
 }

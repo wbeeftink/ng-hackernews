@@ -7,3 +7,31 @@
   top: 0;
   z-index: 101;
 }
+
+.container {
+  align-items: center;
+  color: rgba(#fff, 0.7);
+  display: flex;
+}
+
+.logo {
+  margin-right: 14px;
+
+  img {
+    display: block;
+    width: 24px;
+  }
+}
+
+a {
+  color: inherit;
+  font-weight: normal;
+
+  &.active {
+    color: #fff;
+  }
+}
+
+.made-by {
+  margin-left: auto;
+}

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Config } from '../../config';
 
 import { Item } from '../../interfaces/item';
 
@@ -9,4 +10,5 @@ import { Item } from '../../interfaces/item';
 })
 export class CommentComponent {
   @Input() comment: Item;
+  dateFormat = Config.dateFormat;
 }

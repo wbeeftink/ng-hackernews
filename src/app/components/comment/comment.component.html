@@ -1,15 +1,31 @@
-<blockquote>
+<div class="thread">
 
-  <p>
-    <span>User: <a [routerLink]="['/user', comment.user]">{{ comment.user }}</a></span> |
-    <span [title]="comment.time">{{ comment.time_ago }}</span>
-  </p>
+  <div class="comment">
 
-  <div *ngIf="comment.content" [innerHTML]="comment.content"></div>
+    <!-- Title -->
+    <div class="title">
 
+      <!-- User -->
+      <span>
+        <a [routerLink]="['/user', comment.user]" title="Posted by {{ comment.user }}">{{ comment.user }}</a>
+      </span> |
+
+      <!-- Time -->
+      <span title="Posted on {{ comment.time | date: dateFormat }}">
+        {{ comment.time_ago }}
+      </span>
+
+    </div>
+
+    <!-- Content -->
+    <div *ngIf="comment.content" [innerHTML]="comment.content" class="content"></div>
+
+  </div>
+
+  <!-- Nested comments -->
   <app-comment
     *ngFor="let comment of comment.comments"
     [comment]="comment">
   </app-comment>
 
-</blockquote>
+</div>

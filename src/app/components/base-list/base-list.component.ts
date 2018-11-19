@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
+import { Config } from '../../config';
 import { FeedItem } from '../../interfaces/feed-item';
 import { ApiService } from '../../services/api.service';
 
@@ -31,7 +32,7 @@ export class BaseListComponent implements OnInit {
       this.apiService[this.serviceMethod](this.currentPage)
         .subscribe((data: FeedItem[]) => {
           this.items = data;
-          this.titleService.setTitle(`NgHackerNews | ${this.routeTitle}`);
+          this.titleService.setTitle(Config.getTitle(this.routeTitle));
         });
     });
   }

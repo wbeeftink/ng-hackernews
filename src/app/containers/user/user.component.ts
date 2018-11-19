@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
+import { Config } from '../../config';
 import { User } from '../../interfaces/user';
 import { ApiService } from '../../services/api.service';
 
@@ -12,6 +13,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class UserComponent implements OnInit {
   user: User;
+  dateFormat = Config.dateFormat;
 
   constructor(
     private titleService: Title,
@@ -25,7 +27,7 @@ export class UserComponent implements OnInit {
         .getUser(params['name'])
         .subscribe((data: User) => {
           this.user = data;
-          this.titleService.setTitle(`NgHackerNews | ${data.id}`);
+          this.titleService.setTitle(Config.getTitle(data.id));
         });
     });
   }

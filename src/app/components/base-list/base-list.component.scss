@@ -1,3 +1,8 @@
-.items {
+.container {
   margin-top: 64px;
+
+  > * + * {
+    display: block;
+    margin-top: 1vh;
+  }
 }

@@ -1,13 +1,27 @@
 <mat-toolbar color="primary">
-  <nav>
-    <a mat-button routerLink="/">
-      ng-hackernews
+  <div class="container">
+
+    <!-- Logo -->
+    <a routerLink="/" class="logo">
+      <img src="assets/logo.svg" alt="NgHackernews">
     </a>
+
+    <!-- Navigation items -->
     <a
       *ngFor="let navItem of navItems"
       [routerLink]="navItem.link"
+      routerLinkActive="active"
       mat-button>
       {{ navItem.title }}
     </a>
-  </nav>
+
+    <a
+      mat-button
+      href="https://angular.io/"
+      target="_blank"
+      class="made-by">
+      Made with Angular
+    </a>
+
+  </div>
 </mat-toolbar>

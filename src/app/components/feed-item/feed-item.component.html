@@ -1,22 +1,49 @@
 <mat-card>
 
-  <mat-card-title *ngIf="item.domain">
-    <a [href]="item.url" target="_blank" rel="noopener">{{ item.title }}</a> ({{ item.domain }})
-  </mat-card-title>
+  <!-- Points -->
+  <span class="points" title="{{ item.points | i18nPlural: pointsMapping }}">{{ item.points }}</span>
 
-  <mat-card-title *ngIf="!item.domain">
-    <a [routerLink]="['/item', item.id]">{{ item.title }}</a>
-  </mat-card-title>
+  <div>
 
-  <mat-card-subtitle *ngIf="item.type !== 'job'">
-    <span *ngIf="item.user">By <a [routerLink]="['/user', item.user]">{{ item.user }}</a> | </span>
-    <span *ngIf="item.points">{{ item.points }} points | </span>
-    <span [title]="item.time">{{ item.time_ago }} | </span>
-    <span><a [routerLink]="['/item', item.id]">{{ item.comments_count }} comments</a></span>
-  </mat-card-subtitle>
+    <!-- Title with domain -->
+    <mat-card-title *ngIf="item.domain">
+      <a [href]="item.url" target="_blank" rel="noopener">{{ item.title }}</a> ({{ item.domain }})
+    </mat-card-title>
 
-  <mat-card-subtitle *ngIf="item.type === 'job'">
-    <span [title]="item.time">{{ item.time_ago }}</span>
-  </mat-card-subtitle>
+    <!-- Title without domain -->
+    <mat-card-title *ngIf="!item.domain">
+      <a [routerLink]="['/item', item.id]">
+        {{ item.title }}
+      </a>
+    </mat-card-title>
+
+    <!-- Subtitle with meta data -->
+    <mat-card-subtitle *ngIf="item.type !== 'job'">
+
+      <!-- User -->
+      <span *ngIf="item.user">
+        By <a [routerLink]="['/user', item.user]" title="Posted by {{ item.user }}">{{ item.user }}</a>
+      </span> |
+
+      <!-- Time -->
+      <span title="Posted on {{ item.time | date: dateFormat }}">
+        {{ item.time_ago }}
+      </span> |
+
+      <!-- Comments -->
+      <span>
+        <a [routerLink]="['/item', item.id]">{{ item.comments_count | i18nPlural: commentsMapping }}</a>
+      </span>
+
+    </mat-card-subtitle>
+
+    <!-- Subtitle with only time data -->
+    <mat-card-subtitle *ngIf="item.type === 'job'">
+      <span [title]="item.time">
+        {{ item.time_ago }}
+      </span>
+    </mat-card-subtitle>
+
+  </div>
 
 </mat-card>
