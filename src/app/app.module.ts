@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
+import { routes } from './routes';
+import { environment } from '../environments/environment';
 
 // Angular Material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,8 +31,6 @@ import { FeedItemComponent } from './components/feed-item/feed-item.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 
-// Routes
-import { routes } from './routes';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { routes } from './routes';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [Title],
   bootstrap: [AppComponent]

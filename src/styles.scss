@@ -25,6 +25,14 @@ pre {
   overflow-x: auto;
 }
 
+.content {
+  overflow-wrap: break-word;
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
 @media(max-width: 599px) {
 
   body {

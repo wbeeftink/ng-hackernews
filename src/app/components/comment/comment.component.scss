@@ -22,9 +22,11 @@ span + span {
 
 .content {
   margin-bottom: 24px;
-  overflow-wrap: break-word;
+}
 
-  ::ng-deep *:last-child {
-    margin-bottom: 0;
+@media(max-width: 399px) {
+
+  .thread .thread {
+    padding-left: 12px;
   }
 }

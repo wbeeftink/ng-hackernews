@@ -18,25 +18,27 @@
   <mat-card>
 
     <!-- About -->
-    <div *ngIf="user?.about">
+    <section *ngIf="user?.about" class="about">
       <h2>About</h2>
-      <div [innerHTML]="user?.about"></div>
-    </div>
+      <div [innerHTML]="user?.about" class="content"></div>
+    </section>
 
     <!-- External links -->
-    <h2>Links</h2>
-    <ul class="links">
-      <li>
-        <a href="https://news.ycombinator.com/submitted?id={{ user?.id }}" target="_blank">
-          Submissions
-        </a>
-      </li>
-      <li>
-        <a href="https://news.ycombinator.com/threads?id={{ user?.id }}" target="_blank">
-          Comments
-        </a>
-      </li>
-    </ul>
+    <section class="links">
+      <h2>Links</h2>
+      <ul>
+        <li>
+          <a href="https://news.ycombinator.com/submitted?id={{ user?.id }}" target="_blank">
+            Submissions
+          </a>
+        </li>
+        <li>
+          <a href="https://news.ycombinator.com/threads?id={{ user?.id }}" target="_blank">
+            Comments
+          </a>
+        </li>
+      </ul>
+    </section>
 
   </mat-card>
 
