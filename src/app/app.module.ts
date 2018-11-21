@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-import { routes } from './routes';
 import { environment } from '../environments/environment';
+import { routes } from './routes';
+import { SentryErrorHandler } from './sentry';
 
 // Angular Material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -30,7 +31,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { FeedItemComponent } from './components/feed-item/feed-item.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
-
 
 @NgModule({
   declarations: [
@@ -59,7 +59,13 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     MatIconModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [Title],
+  providers: [
+    Title,
+    {
+      provide: ErrorHandler,
+      useClass: environment.production ? SentryErrorHandler : ErrorHandler
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
