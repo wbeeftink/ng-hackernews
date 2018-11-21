@@ -27,12 +27,19 @@ export class BaseListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
+    // Update the title
+    this.titleService.setTitle(Config.getTitle(this.routeTitle));
+
     this.route.params.subscribe((params: ParamMap) => {
+
+      // Grab page number from the parameters, otherwise show the first page by default
       this.currentPage = params['page'] ? Number(params['page']) : 1;
+
+      // Get the current feed items by passing the service method (top, new, .etc)
       this.apiService[this.serviceMethod](this.currentPage)
         .subscribe((data: FeedItem[]) => {
           this.items = data;
-          this.titleService.setTitle(Config.getTitle(this.routeTitle));
         });
     });
   }

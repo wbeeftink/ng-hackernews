@@ -10,6 +10,7 @@ import { Config } from '../../config';
 })
 export class NotFoundComponent implements OnInit {
   constructor(private titleService: Title) {}
+
   ngOnInit() {
     this.titleService.setTitle(Config.getTitle('Not found'));
   }

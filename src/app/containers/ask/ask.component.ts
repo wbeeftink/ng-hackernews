@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { BaseListComponent } from '../../components/base-list/base-list.component';
-import { FeedItem } from '../../interfaces/feed-item';
 import { ApiService } from '../../services/api.service';
 
 @Component({

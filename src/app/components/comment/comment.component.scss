@@ -22,6 +22,7 @@ span + span {
 
 .content {
   margin-bottom: 24px;
+  overflow-wrap: break-word;
 
   ::ng-deep *:last-child {
     margin-bottom: 0;

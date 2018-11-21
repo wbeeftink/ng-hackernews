@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-// Material components
+// Angular Material
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -28,28 +28,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 
 // Routes
-const routes: Routes = [
-  { path: '', redirectTo: 'top', pathMatch: 'full' },
-
-  // List views
-  { path: 'top', component: TopComponent },
-  { path: 'top/:page', component: TopComponent },
-  { path: 'new', component: NewComponent },
-  { path: 'new/:page', component: NewComponent },
-  { path: 'show', component: ShowComponent },
-  { path: 'show/:page', component: ShowComponent },
-  { path: 'ask', component: AskComponent },
-  { path: 'ask/:page', component: AskComponent },
-  { path: 'jobs', component: JobsComponent },
-  { path: 'jobs/:page', component: JobsComponent },
-
-  // Detail views
-  { path: 'item/:id', component: ItemComponent },
-  { path: 'user/:name', component: UserComponent },
-
-  // Not found
-  { path: '**', component: NotFoundComponent }
-];
+import { routes } from './routes';
 
 @NgModule({
   declarations: [

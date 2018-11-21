@@ -1,9 +1,9 @@
 <mat-card>
 
   <!-- Points -->
-  <span class="points" title="{{ item.points | i18nPlural: pointsMapping }}">{{ item.points }}</span>
+  <span class="large-points" title="{{ item.points | i18nPlural: pointsMapping }}">{{ item.points }}</span>
 
-  <div>
+  <div class="content">
 
     <!-- Title with domain -->
     <mat-card-title *ngIf="item.domain">
@@ -24,6 +24,11 @@
       <span *ngIf="item.user">
         By <a [routerLink]="['/user', item.user]" title="Posted by {{ item.user }}">{{ item.user }}</a>
       </span> |
+
+      <!-- Points -->
+      <span class="points">
+        {{ item.points | i18nPlural: pointsMapping }} |
+      </span>
 
       <!-- Time -->
       <span title="Posted on {{ item.time | date: dateFormat }}">

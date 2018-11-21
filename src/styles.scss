@@ -20,3 +20,14 @@ a {
   max-width: 800px;
   width: 100%;
 }
+
+pre {
+  overflow-x: auto;
+}
+
+@media(max-width: 599px) {
+
+  body {
+    padding: calc(2vh + 58px) 16px 2vh;
+  }
+}

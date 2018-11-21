@@ -32,6 +32,11 @@
 
   h2 {
     font-size: inherit;
-    margin: 0 0 1em;
+    margin: 0;
+  }
+
+  h2 + * {
+    display: block;
+    margin-top: 1em;
   }
 }
