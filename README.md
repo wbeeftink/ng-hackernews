@@ -1,6 +1,6 @@
 # NgHackernews
 
-![NgHackernews](https://raw.githubusercontent.com/wbeeftink/ng-hackernews/master/src/assets/icons/icon-384x384.png)
+![NgHackernews](https://raw.githubusercontent.com/wbeeftink/ng-hackernews/master/src/assets/icons/icon-192x192.png)
 
 This project is yet another Hackernews clone. I created this project to learn Angular and will use it in the future to test new features. It shows the feeds from Hackernews (Top, New, Show, Ask & Jobs) in a more readable fashion and it also suitable for mobile devices. It uses [Angular Material](https://material.angular.io/) for the UI.
 
