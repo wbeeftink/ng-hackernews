@@ -24,8 +24,12 @@ There's (always) room for improvement but with basic features the project scores
 
 ![Lighthouse](https://i.imgur.com/HNCriHu.png)
 
-## Acknowledgments
+## Credits
 
 * [Evan You](https://github.com/yyx990803) for creating [vue-hackernews-2.0](https://vue-hn.now.sh/)
 * [Lim Chee Aun](https://github.com/cheeaun) for creating [Hacker News (unofficial) API](https://github.com/cheeaun/node-hnapi)
 * Many others for sharing their Hackernews clones at [HNPWA](https://hnpwa.com/)
+
+## License
+
+MIT
