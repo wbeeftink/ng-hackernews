@@ -6,12 +6,12 @@
     <div class="title">
 
       <!-- User -->
-      <span>
+      <span class="user">
         <a [routerLink]="['/user', comment.user]" title="Posted by {{ comment.user }}">{{ comment.user }}</a>
       </span> |
 
       <!-- Time -->
-      <span title="Posted on {{ comment.time | date: dateFormat }}">
+      <span title="Posted on {{ comment.time | date: dateFormat }}" class="time">
         {{ comment.time_ago }}
       </span>
 

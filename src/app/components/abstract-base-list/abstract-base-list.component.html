@@ -6,7 +6,7 @@
 
 <div class="container">
   <app-feed-item
-    *ngFor="let item of items"
+    *ngFor="let item of items | async"
     [item]="item">
   </app-feed-item>
 </div>

@@ -7,7 +7,7 @@ import { FeedItem } from '../interfaces/feed-item';
 import { Item } from '../interfaces/item';
 import { User } from '../interfaces/user';
 
-const API: string = 'https://node-hnapi.herokuapp.com';
+export const API = 'https://node-hnapi.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'

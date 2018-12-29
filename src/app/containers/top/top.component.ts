@@ -2,19 +2,19 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { BaseListComponent } from '../../components/base-list/base-list.component';
+import { AbstractBaseListComponent } from '../../components/abstract-base-list/abstract-base-list.component';
 import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-top',
-  templateUrl: '../../components/base-list/base-list.component.html',
-  styleUrls: ['../../components/base-list/base-list.component.scss']
+  templateUrl: '../../components/abstract-base-list/abstract-base-list.component.html',
+  styleUrls: ['../../components/abstract-base-list/abstract-base-list.component.scss']
 })
-export class TopComponent extends BaseListComponent {
-  maxPages: number = 10;
-  routeName: string = 'top';
-  routeTitle: string = 'Top';
-  serviceMethod: string = 'getTopItems';
+export class TopComponent extends AbstractBaseListComponent {
+  maxPages = 10;
+  routeName = 'top';
+  routeTitle = 'Top';
+  serviceMethod = 'getTopItems';
 
   constructor(
     titleService: Title,

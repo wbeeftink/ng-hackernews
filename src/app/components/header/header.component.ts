@@ -14,5 +14,5 @@ export class HeaderComponent {
     { title: 'Show', link: 'show' },
     { title: 'Ask', link: 'ask' },
     { title: 'Jobs', link: 'jobs' }
-  ]
+  ];
 }

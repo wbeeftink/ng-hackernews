@@ -4,32 +4,32 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 
-import { ItemComponent } from './item.component';
-import { PaginationComponent } from '../../components/pagination/pagination.component';
-import { CommentComponent } from '../../components/comment/comment.component';
+import { AbstractBaseListComponent } from './abstract-base-list.component';
+import { PaginationComponent } from '../pagination/pagination.component';
+import { FeedItemComponent } from '../feed-item/feed-item.component';
 
-describe('ItemComponent', () => {
-  let component: ItemComponent;
-  let fixture: ComponentFixture<ItemComponent>;
+describe('AbstractBaseListComponent', () => {
+  let component: AbstractBaseListComponent;
+  let fixture: ComponentFixture<AbstractBaseListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
         HttpClientTestingModule,
-        MatCardModule,
-        MatIconModule
+        MatIconModule,
+        MatCardModule
       ],
       declarations: [
-        ItemComponent,
+        AbstractBaseListComponent,
         PaginationComponent,
-        CommentComponent
+        FeedItemComponent
       ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ItemComponent);
+    fixture = TestBed.createComponent(AbstractBaseListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

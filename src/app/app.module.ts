@@ -26,7 +26,7 @@ import { NotFoundComponent } from './containers/not-found/not-found.component';
 
 // Components
 import { AppComponent } from './app.component';
-import { BaseListComponent } from './components/base-list/base-list.component';
+import { AbstractBaseListComponent } from './components/abstract-base-list/abstract-base-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FeedItemComponent } from './components/feed-item/feed-item.component';
 import { CommentComponent } from './components/comment/comment.component';
@@ -47,7 +47,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     UserComponent,
     CommentComponent,
     PaginationComponent,
-    BaseListComponent
+    AbstractBaseListComponent
   ],
   imports: [
     BrowserModule,
@@ -68,4 +68,4 @@ import { PaginationComponent } from './components/pagination/pagination.componen
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

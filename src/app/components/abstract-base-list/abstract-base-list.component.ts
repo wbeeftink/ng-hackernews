@@ -7,11 +7,11 @@ import { FeedItem } from '../../interfaces/feed-item';
 import { ApiService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-base-list',
-  templateUrl: './base-list.component.html',
-  styleUrls: ['./base-list.component.scss']
+  selector: 'app-abstract--base-list',
+  templateUrl: './abstract-base-list.component.html',
+  styleUrls: ['./abstract-base-list.component.scss']
 })
-export class BaseListComponent implements OnInit {
+export class AbstractBaseListComponent implements OnInit {
   items: FeedItem[];
   currentPage: number;
   maxPages: number;
@@ -24,7 +24,7 @@ export class BaseListComponent implements OnInit {
     private apiService: ApiService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
 
@@ -37,10 +37,7 @@ export class BaseListComponent implements OnInit {
       this.currentPage = params['page'] ? Number(params['page']) : 1;
 
       // Get the current feed items by passing the service method (top, new, .etc)
-      this.apiService[this.serviceMethod](this.currentPage)
-        .subscribe((data: FeedItem[]) => {
-          this.items = data;
-        });
+      this.items = this.apiService[this.serviceMethod](this.currentPage);
     });
   }
 
