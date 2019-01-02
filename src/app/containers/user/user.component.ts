@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { Config } from '../../config';
@@ -22,9 +22,9 @@ export class UserComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe((params: ParamMap) => {
+    this.route.params.subscribe(params => {
       this.apiService
-        .getUser(params['name'])
+        .getUser(params.name)
         .subscribe((data: User) => {
           this.user = data;
           this.titleService.setTitle(Config.getTitle(data.id));

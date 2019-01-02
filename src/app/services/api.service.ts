@@ -39,7 +39,7 @@ export class ApiService {
     return this.http.get<Item>(`${API}/item/${id}`);
   }
 
-  getUser(name: number): Observable<User> {
+  getUser(name: string): Observable<User> {
     return this.http.get<User>(`${API}/user/${name}`);
   }
 }

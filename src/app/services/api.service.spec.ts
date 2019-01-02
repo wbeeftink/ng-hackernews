@@ -4,6 +4,21 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ApiService, API } from './api.service';
 import { FeedItem } from '../interfaces/feed-item';
 import { Item } from '../interfaces/item';
+import { User } from '../interfaces/user';
+
+interface Type {
+  type: string;
+  serviceMethod: string;
+  path: string;
+}
+
+const types: Type[] = [
+  { type: 'top', serviceMethod: 'getTopItems', path: 'news' },
+  { type: 'new', serviceMethod: 'getNewItems', path: 'newest' },
+  { type: 'show', serviceMethod: 'getShowItems', path: 'show' },
+  { type: 'ask', serviceMethod: 'getAskItems', path: 'ask' },
+  { type: 'job', serviceMethod: 'getJobsItems', path: 'jobs' }
+];
 
 const mockItems: FeedItem[] = [{
   id: 1,
@@ -47,6 +62,13 @@ const mockItem: Item = {
   comments_count: 0
 };
 
+const mockUser: User = {
+  created_time: 0,
+  created: '',
+  id: 'abc0123',
+  karma: 0
+};
+
 describe('ApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -59,20 +81,39 @@ describe('ApiService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should get top items', inject([ApiService, HttpTestingController], (
-    apiService: ApiService,
-    httpMock: HttpTestingController
-  ) => {
-    apiService.getTopItems(1).subscribe(items => {
-      expect(items).toEqual(mockItems);
-      expect(items[0].id).toBe(1);
-      expect(items[1].id).toBe(2);
-    });
+  types.forEach(object => {
+    it(`should get first page of ${object.type} items`, inject([ApiService, HttpTestingController], (
+      apiService: ApiService,
+      httpMock: HttpTestingController
+    ) => {
+      apiService[object.serviceMethod]().subscribe(items => {
+        expect(items).toEqual(mockItems);
+        expect(items[0].id).toBe(1);
+        expect(items[1].id).toBe(2);
+      });
 
-    const mockReq = httpMock.expectOne(`${API}/news?page=1`);
-    expect(mockReq.cancelled).toBeFalsy();
-    expect(mockReq.request.responseType).toEqual('json');
-  }));
+      const mockReq = httpMock.expectOne(`${API}/${object.path}?page=1`);
+      expect(mockReq.cancelled).toBeFalsy();
+      expect(mockReq.request.responseType).toEqual('json');
+    }));
+  });
+
+  types.forEach(object => {
+    it(`should get second page of ${object.type} items`, inject([ApiService, HttpTestingController], (
+      apiService: ApiService,
+      httpMock: HttpTestingController
+    ) => {
+      apiService[object.serviceMethod](2).subscribe(items => {
+        expect(items).toEqual(mockItems);
+        expect(items[0].id).toBe(1);
+        expect(items[1].id).toBe(2);
+      });
+
+      const mockReq = httpMock.expectOne(`${API}/${object.path}?page=2`);
+      expect(mockReq.cancelled).toBeFalsy();
+      expect(mockReq.request.responseType).toEqual('json');
+    }));
+  });
 
   it('should get item', inject([ApiService, HttpTestingController], (
     apiService: ApiService,
@@ -85,6 +126,20 @@ describe('ApiService', () => {
     });
 
     const mockReq = httpMock.expectOne(`${API}/item/${mockItem.id}`);
+    expect(mockReq.cancelled).toBeFalsy();
+    expect(mockReq.request.responseType).toEqual('json');
+  }));
+
+  it('should get user', inject([ApiService, HttpTestingController], (
+    apiService: ApiService,
+    httpMock: HttpTestingController
+  ) => {
+    apiService.getUser(mockUser.id).subscribe(item => {
+      expect(item).toEqual(mockUser);
+      expect(item.id).toBe(mockUser.id);
+    });
+
+    const mockReq = httpMock.expectOne(`${API}/user/${mockUser.id}`);
     expect(mockReq.cancelled).toBeFalsy();
     expect(mockReq.request.responseType).toEqual('json');
   }));
