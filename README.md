@@ -1,5 +1,7 @@
 # NgHackernews
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f4251935-6957-41b1-8402-2c0e0432098d/deploy-status)](https://app.netlify.com/sites/ng-hackernews/deploys)
+
 ![NgHackernews](https://raw.githubusercontent.com/wbeeftink/ng-hackernews/master/src/assets/icons/icon-192x192.png)
 
 This project is yet another Hackernews clone using the [Hacker News (unofficial) API](https://github.com/cheeaun/node-hnapi). I was heavily inpsired by [vue-hackernews-2.0](https://vue-hn.now.sh/). I created this project to learn Angular and will use it in the future to test new features. It shows the feeds from [Hackernews](https://news.ycombinator.com/) (Top, New, Show, Ask & Jobs) in a more readable fashion and is also suitable for mobile devices. It uses [Angular Material](https://material.angular.io/) for the UI layer.
