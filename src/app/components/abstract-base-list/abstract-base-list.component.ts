@@ -31,7 +31,7 @@ export class AbstractBaseListComponent implements OnInit {
     // Update the title
     this.titleService.setTitle(Config.getTitle(this.routeTitle));
 
-    this.route.params.subscribe((params: ParamMap) => {
+    this.route.params.subscribe(params => {
 
       // Grab page number from the parameters, otherwise show the first page by default
       this.currentPage = params['page'] ? Number(params['page']) : 1;
