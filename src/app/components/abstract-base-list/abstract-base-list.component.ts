@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
 
 import { Config } from '../../config';
 import { FeedItem } from '../../interfaces/feed-item';
@@ -12,7 +13,7 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./abstract-base-list.component.scss']
 })
 export class AbstractBaseListComponent implements OnInit {
-  items: FeedItem[];
+  items$: Observable<FeedItem[]>;
   currentPage: number;
   maxPages: number;
   routeName: string;
@@ -37,7 +38,7 @@ export class AbstractBaseListComponent implements OnInit {
       this.currentPage = params['page'] ? Number(params['page']) : 1;
 
       // Get the current feed items by passing the service method (top, new, .etc)
-      this.items = this.apiService[this.serviceMethod](this.currentPage);
+      this.items$ = this.apiService[this.serviceMethod](this.currentPage);
     });
   }
 
