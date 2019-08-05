@@ -1,14 +1,7 @@
-<app-pagination
-  (previous)="goToPage($event)"
-  (next)="goToPage($event)"
-  [currentPage]="currentPage"
-  [maxPages]="maxPages"></app-pagination>
+<app-pagination (previous)="goToPage($event)" (next)="goToPage($event)" [currentPage]="currentPage"
+  [maxPages]="maxPages">
+</app-pagination>
 
 <div class="container">
-  <app-feed-item
-    *ngFor="let item of items"
-    [item]="item">
-  </app-feed-item>
+  <app-feed-item *ngFor="let item of items | async" [item]="item"></app-feed-item>
 </div>
-
-
