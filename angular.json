@@ -139,5 +139,8 @@
       }
     }
   },
-  "defaultProject": "ng-hackernews"
+  "defaultProject": "ng-hackernews",
+  "cli": {
+    "packageManager": "npm"
+  }
 }
