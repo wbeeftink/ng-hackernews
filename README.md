@@ -22,11 +22,11 @@ There are several features I have on my wishlisht which I might or might not imp
 
 ## Benchmarks
 
-There's (always) room for improvement but with basic features the project scores 100/100 for PWA features in Lighthouse. My next area of focus should be formance. Especially third party content and critical CSS.
+There's (always) room for improvement but with basic features the project scores 100/100 for PWA features in Lighthouse. My next area of focus should be performance. Especially third party content and critical CSS.
 
 ![Lighthouse](https://i.imgur.com/HNCriHu.png)
 
-## Credits
+## Credits  
 
 * [Evan You](https://github.com/yyx990803) for creating [vue-hackernews-2.0](https://vue-hn.now.sh/)
 * [Lim Chee Aun](https://github.com/cheeaun) for creating [Hacker News (unofficial) API](https://github.com/cheeaun/node-hnapi)
