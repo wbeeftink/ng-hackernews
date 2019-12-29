@@ -17,7 +17,7 @@ const types: Type[] = [
   { type: 'new', serviceMethod: 'getNewItems', path: 'newest' },
   { type: 'show', serviceMethod: 'getShowItems', path: 'show' },
   { type: 'ask', serviceMethod: 'getAskItems', path: 'ask' },
-  { type: 'job', serviceMethod: 'getJobsItems', path: 'jobs' }
+  { type: 'job', serviceMethod: 'getJobsItems', path: 'jobs' },
 ];
 
 const mockItems: FeedItem[] = [{
@@ -30,7 +30,7 @@ const mockItems: FeedItem[] = [{
   comments_count: 0,
   type: '',
   url: '',
-  domain: ''
+  domain: '',
 }, {
   id: 2,
   title: 'Just an update',
@@ -41,7 +41,7 @@ const mockItems: FeedItem[] = [{
   comments_count: 0,
   type: '',
   url: '',
-  domain: ''
+  domain: '',
 }];
 
 const mockItem: Item = {
@@ -59,21 +59,21 @@ const mockItem: Item = {
   domain: '',
   comments: [],
   level: 0,
-  comments_count: 0
+  comments_count: 0,
 };
 
 const mockUser: User = {
   created_time: 0,
   created: '',
   id: 'abc0123',
-  karma: 0
+  karma: 0,
 };
 
 describe('ApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ApiService]
+      providers: [ApiService],
     });
   });
 
@@ -84,7 +84,7 @@ describe('ApiService', () => {
   types.forEach(object => {
     it(`should get first page of ${object.type} items`, inject([ApiService, HttpTestingController], (
       apiService: ApiService,
-      httpMock: HttpTestingController
+      httpMock: HttpTestingController,
     ) => {
       apiService[object.serviceMethod]().subscribe(items => {
         expect(items).toEqual(mockItems);
@@ -101,7 +101,7 @@ describe('ApiService', () => {
   types.forEach(object => {
     it(`should get second page of ${object.type} items`, inject([ApiService, HttpTestingController], (
       apiService: ApiService,
-      httpMock: HttpTestingController
+      httpMock: HttpTestingController,
     ) => {
       apiService[object.serviceMethod](2).subscribe(items => {
         expect(items).toEqual(mockItems);
@@ -117,7 +117,7 @@ describe('ApiService', () => {
 
   it('should get item', inject([ApiService, HttpTestingController], (
     apiService: ApiService,
-    httpMock: HttpTestingController
+    httpMock: HttpTestingController,
   ) => {
     apiService.getItem(mockItem.id).subscribe(item => {
       expect(item).toEqual(mockItem);
@@ -132,7 +132,7 @@ describe('ApiService', () => {
 
   it('should get user', inject([ApiService, HttpTestingController], (
     apiService: ApiService,
-    httpMock: HttpTestingController
+    httpMock: HttpTestingController,
   ) => {
     apiService.getUser(mockUser.id).subscribe(item => {
       expect(item).toEqual(mockUser);

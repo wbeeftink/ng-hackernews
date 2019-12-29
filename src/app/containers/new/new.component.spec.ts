@@ -18,13 +18,13 @@ describe('NewComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule,
         MatIconModule,
-        MatCardModule
+        MatCardModule,
       ],
       declarations: [
         NewComponent,
         PaginationComponent,
-        FeedItemComponent
-      ]
+        FeedItemComponent,
+      ],
     }).compileComponents();
   }));
 

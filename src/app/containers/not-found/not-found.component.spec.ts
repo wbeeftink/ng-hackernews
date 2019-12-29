@@ -10,9 +10,9 @@ describe('NotFoundComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MatCardModule
+        MatCardModule,
       ],
-      declarations: [NotFoundComponent]
+      declarations: [NotFoundComponent],
     }).compileComponents();
   }));
 

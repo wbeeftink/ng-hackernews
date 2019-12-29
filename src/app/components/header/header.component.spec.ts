@@ -15,9 +15,9 @@ describe('HeaderComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        MatToolbarModule
+        MatToolbarModule,
       ],
-      declarations: [HeaderComponent]
+      declarations: [HeaderComponent],
     }).compileComponents();
   }));
 

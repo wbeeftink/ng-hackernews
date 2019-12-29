@@ -10,7 +10,7 @@ import { User } from '../interfaces/user';
 export const API = 'https://node-hnapi.herokuapp.com';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
   constructor(private http: HttpClient) { }

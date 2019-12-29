@@ -13,9 +13,9 @@ describe('PaginationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MatIconModule
+        MatIconModule,
       ],
-      declarations: [PaginationComponent]
+      declarations: [PaginationComponent],
     }).compileComponents();
   }));
 

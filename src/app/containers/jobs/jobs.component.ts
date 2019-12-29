@@ -8,7 +8,7 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-jobs',
   templateUrl: '../../components/abstract-base-list/abstract-base-list.component.html',
-  styleUrls: ['../../components/abstract-base-list/abstract-base-list.component.scss']
+  styleUrls: ['../../components/abstract-base-list/abstract-base-list.component.scss'],
 })
 export class JobsComponent extends AbstractBaseListComponent {
   maxPages = 1;
@@ -20,7 +20,7 @@ export class JobsComponent extends AbstractBaseListComponent {
     titleService: Title,
     apiService: ApiService,
     router: Router,
-    route: ActivatedRoute
+    route: ActivatedRoute,
   ) {
     super(titleService, apiService, router, route);
   }

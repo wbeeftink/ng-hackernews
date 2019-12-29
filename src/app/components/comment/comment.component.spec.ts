@@ -26,7 +26,7 @@ const mockComment: Item = {
     type: '',
     comments: [],
     level: 0,
-    comments_count: 0
+    comments_count: 0,
   }, {
     id: 3,
     title: '',
@@ -38,10 +38,10 @@ const mockComment: Item = {
     type: '',
     comments: [],
     level: 0,
-    comments_count: 0
+    comments_count: 0,
   }],
   level: 0,
-  comments_count: 0
+  comments_count: 0,
 };
 
 describe('CommentComponent', () => {
@@ -52,7 +52,7 @@ describe('CommentComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [CommentComponent]
+      declarations: [CommentComponent],
     }).compileComponents();
   }));
 

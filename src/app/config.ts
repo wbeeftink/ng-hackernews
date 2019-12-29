@@ -6,13 +6,13 @@ export class Config {
   static pointsMapping: { [ k: string ]: string } = {
     '=0': '0 points',
     '=1': '1 point',
-    'other': '# points'
+    'other': '# points',
   };
 
   static commentsMapping: { [ k: string ]: string } = {
     '=0': '0 comments',
     '=1': '1 comment',
-    'other': '# comments'
+    'other': '# comments',
   };
 
   static getTitle(title: string): string {

@@ -10,7 +10,7 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-abstract--base-list',
   templateUrl: './abstract-base-list.component.html',
-  styleUrls: ['./abstract-base-list.component.scss']
+  styleUrls: ['./abstract-base-list.component.scss'],
 })
 export class AbstractBaseListComponent implements OnInit {
   items$: Observable<FeedItem[]>;
@@ -24,7 +24,7 @@ export class AbstractBaseListComponent implements OnInit {
     private titleService: Title,
     private apiService: ApiService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {

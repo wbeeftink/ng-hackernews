@@ -14,9 +14,9 @@ describe('UserComponent', () => {
       imports: [
         RouterTestingModule,
         HttpClientTestingModule,
-        MatCardModule
+        MatCardModule,
       ],
-      declarations: [UserComponent]
+      declarations: [UserComponent],
     }).compileComponents();
   }));
 

@@ -5,7 +5,7 @@ import { NavItem } from '../../interfaces/nav-item';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   navItems: NavItem[] = [
@@ -13,6 +13,6 @@ export class HeaderComponent {
     { title: 'New', link: 'new' },
     { title: 'Show', link: 'show' },
     { title: 'Ask', link: 'ask' },
-    { title: 'Jobs', link: 'jobs' }
+    { title: 'Jobs', link: 'jobs' },
   ];
 }

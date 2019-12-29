@@ -47,7 +47,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     UserComponent,
     CommentComponent,
     PaginationComponent,
-    AbstractBaseListComponent
+    AbstractBaseListComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,15 +57,15 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     Title,
     {
       provide: ErrorHandler,
-      useClass: environment.production ? SentryErrorHandler : ErrorHandler
-    }
+      useClass: environment.production ? SentryErrorHandler : ErrorHandler,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -18,13 +18,13 @@ describe('AskComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule,
         MatIconModule,
-        MatCardModule
+        MatCardModule,
       ],
       declarations: [
         AskComponent,
         PaginationComponent,
-        FeedItemComponent
-      ]
+        FeedItemComponent,
+      ],
     }).compileComponents();
   }));
 

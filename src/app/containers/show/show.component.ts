@@ -8,7 +8,7 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-show',
   templateUrl: '../../components/abstract-base-list/abstract-base-list.component.html',
-  styleUrls: ['../../components/abstract-base-list/abstract-base-list.component.scss']
+  styleUrls: ['../../components/abstract-base-list/abstract-base-list.component.scss'],
 })
 export class ShowComponent extends AbstractBaseListComponent {
   maxPages = 2;
@@ -20,7 +20,7 @@ export class ShowComponent extends AbstractBaseListComponent {
     titleService: Title,
     apiService: ApiService,
     router: Router,
-    route: ActivatedRoute
+    route: ActivatedRoute,
   ) {
     super(titleService, apiService, router, route);
   }

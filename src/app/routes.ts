@@ -29,5 +29,5 @@ export const routes: Routes = [
   { path: 'user/:name', component: UserComponent },
 
   // Not found
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
 ];

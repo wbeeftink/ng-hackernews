@@ -18,13 +18,13 @@ describe('AbstractBaseListComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule,
         MatIconModule,
-        MatCardModule
+        MatCardModule,
       ],
       declarations: [
         AbstractBaseListComponent,
         PaginationComponent,
-        FeedItemComponent
-      ]
+        FeedItemComponent,
+      ],
     }).compileComponents();
   }));
 

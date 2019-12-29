@@ -9,7 +9,7 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.scss']
+  styleUrls: ['./item.component.scss'],
 })
 export class ItemComponent implements OnInit {
   item: Item;
@@ -20,7 +20,7 @@ export class ItemComponent implements OnInit {
   constructor(
     private titleService: Title,
     private apiService: ApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {

@@ -18,13 +18,13 @@ describe('ItemComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule,
         MatCardModule,
-        MatIconModule
+        MatIconModule,
       ],
       declarations: [
         ItemComponent,
         PaginationComponent,
-        CommentComponent
-      ]
+        CommentComponent,
+      ],
     }).compileComponents();
   }));
 

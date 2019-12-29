@@ -18,13 +18,13 @@ describe('JobsComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule,
         MatIconModule,
-        MatCardModule
+        MatCardModule,
       ],
       declarations: [
         JobsComponent,
         PaginationComponent,
-        FeedItemComponent
-      ]
+        FeedItemComponent,
+      ],
     }).compileComponents();
   }));
 

@@ -15,7 +15,7 @@ const mockItem: FeedItem = {
   time: Date.now(),
   time_ago: '3 days ago',
   comments_count: 3,
-  type: ''
+  type: '',
 };
 
 describe('FeedItemComponent', () => {
@@ -27,9 +27,9 @@ describe('FeedItemComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        MatCardModule
+        MatCardModule,
       ],
-      declarations: [FeedItemComponent]
+      declarations: [FeedItemComponent],
     }).compileComponents();
   }));
 

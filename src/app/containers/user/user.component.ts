@@ -9,7 +9,7 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
   user: User;
@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
   constructor(
     private titleService: Title,
     private apiService: ApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
