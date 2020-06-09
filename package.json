@@ -35,7 +35,7 @@
     "@angular/cli": "~9.1.1",
     "@angular/compiler-cli": "~9.1.2",
     "@angular/language-service": "~9.1.2",
-    "@sentry/browser": "~5.15.4",
+    "@sentry/browser": "~5.17.0",
     "@types/jasmine": "~3.5.10",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "^13.13.0",
