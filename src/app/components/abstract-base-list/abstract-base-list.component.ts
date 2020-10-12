@@ -38,11 +38,13 @@ export class AbstractBaseListComponent implements OnInit {
       this.currentPage = params['page'] ? Number(params['page']) : 1;
 
       // Get the current feed items by passing the service method (top, new, .etc)
-      this.items$ = this.apiService[this.serviceMethod](this.currentPage);
+      if (typeof this.apiService[this.serviceMethod] === 'function') {
+        this.items$ = this.apiService[this.serviceMethod](this.currentPage);
+      }
     });
   }
 
   goToPage(page: number) {
-    this.router.navigate([this.routeName, page]);
+    this.router.navigate([this.routeName, page]).then();
   }
 }
