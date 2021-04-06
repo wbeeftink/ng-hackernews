@@ -1,5 +1,4 @@
-@import '~@angular/material/theming';
-@import '../../../theme';
+@import "/src/theme";
 
 .mat-card {
   align-items: center;
@@ -44,8 +43,7 @@
   }
 }
 
-@media(max-width: 399px) {
-
+@media (max-width: 399px) {
   .mat-card {
     padding: 16px;
   }
