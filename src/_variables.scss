@@ -1,6 +1,6 @@
-@import "~@angular/material/theming";
+@use '~@angular/material' as mat;
 
-$primary: mat-palette($mat-orange, A700);
-$accent: mat-palette($mat-teal);
+$primary: mat.define-palette(mat.$orange-palette, A700);
+$accent: mat.define-palette(mat.$teal-palette);
 
-$theme: mat-light-theme($primary, $accent);
+$theme: mat.define-light-theme($primary, $accent);
