@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import "/src/variables";
 
 .mat-card {
@@ -7,7 +8,7 @@
 }
 
 .large-points {
-  color: mat-color($primary);
+  color: mat.get-color-from-palette($primary);
   display: flex;
   flex-shrink: 0;
   font-size: 20px;

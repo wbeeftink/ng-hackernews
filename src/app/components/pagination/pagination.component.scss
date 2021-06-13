@@ -1,7 +1,7 @@
-@import '~@angular/material/theming';
+@use '~@angular/material' as mat;
 
 :host {
-  @include mat-elevation(1);
+  @include mat.elevation(1);
   align-items: center;
   background-color: #fff;
   color: rgba(0, 0, 0, 0.54);
