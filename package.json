@@ -2,11 +2,11 @@
   "name": "ng-hackernews",
   "version": "1.0.0",
   "scripts": {
-    "_deploy": "ng build --prod --base-href=\"https://wbeeftink.github.io/ng-hackernews/\" && npx ngh --dir=\"dist/ng-hackernews\"",
+    "_deploy": "ng build --configuration production --base-href=\"https://wbeeftink.github.io/ng-hackernews/\" && npx ngh --dir=\"dist/ng-hackernews\"",
     "_serve_locally": "ng build && cd build/ng-hackernews && angular-http-server -o",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --configuration production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
