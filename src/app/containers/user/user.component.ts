@@ -24,7 +24,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.apiService
-        .getUser(params.name)
+        .getUserNew(params.name)
         .subscribe((data: User) => {
           this.user = data;
           this.titleService.setTitle(Config.getTitle(data.id));

@@ -143,4 +143,19 @@ describe('ApiService', () => {
     expect(mockReq.cancelled).toBeFalsy();
     expect(mockReq.request.responseType).toEqual('json');
   }));
+
+
+  it('should get user using new api', inject([ApiService, HttpTestingController], (
+    apiService: ApiService,
+    httpMock: HttpTestingController,
+  ) => {
+    apiService.getUserNew(mockUser.id).subscribe(item => {
+      expect(item).toEqual(mockUser);
+      expect(item.id).toBe(mockUser.id);
+    });
+
+    const mockReq = httpMock.expectOne(`https://hacker-news.firebaseio.com/v0/user/${mockUser.id}.json`);
+    expect(mockReq.cancelled).toBeFalsy();
+    expect(mockReq.request.responseType).toEqual('json');
+  }));
 });

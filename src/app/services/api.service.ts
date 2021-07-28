@@ -42,4 +42,8 @@ export class ApiService {
   getUser(name: string): Observable<User> {
     return this.http.get<User>(`${API}/user/${name}`);
   }
+
+  getUserNew(name: string): Observable<User> {
+    return this.http.get<User>(`https://hacker-news.firebaseio.com/v0/user/${name}.json`);
+  }
 }
