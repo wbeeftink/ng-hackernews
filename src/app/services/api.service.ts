@@ -1,19 +1,19 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
-import { Observable } from 'rxjs';
+import { Observable } from "rxjs";
 
-import { FeedItem } from '../interfaces/feed-item';
-import { Item } from '../interfaces/item';
-import { User } from '../interfaces/user';
+import { FeedItem } from "../interfaces/feed-item";
+import { Item } from "../interfaces/item";
+import { User } from "../interfaces/user";
 
-export const API = 'https://node-hnapi.herokuapp.com';
+export const API = "https://node-hnapi.herokuapp.com";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ApiService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getTopItems(page: number = 1): Observable<FeedItem[]> {
     return this.http.get<FeedItem[]>(`${API}/news?page=${page}`);
@@ -44,6 +44,8 @@ export class ApiService {
   }
 
   getUserNew(name: string): Observable<User> {
-    return this.http.get<User>(`https://hacker-news.firebaseio.com/v0/user/${name}.json`);
+    return this.http.get<User>(
+      `https://hacker-news.firebaseio.com/v0/user/${name}.json`
+    );
   }
 }

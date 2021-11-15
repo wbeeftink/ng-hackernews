@@ -10,13 +10,13 @@ This project is yet another Hackernews clone using the [Hacker News (unofficial)
 
 Some of the features I implemented so far:
 
-* Usable UI using Angular Material
-* Responsiveness
-* Progressive web app features
-* Speed - it's fast!
-* Offline capabilities (although limited)
-* Hosted and CI with [Netlify](https://www.netlify.com/)
-* Error logging with [Sentry](https://sentry.io/welcome/)
+- Usable UI using Angular Material
+- Responsiveness
+- Progressive web app features
+- Speed - it's fast!
+- Offline capabilities (although limited)
+- Hosted and CI with [Netlify](https://www.netlify.com/)
+- Error logging with [Sentry](https://sentry.io/welcome/)
 
 There are several features I have on my wishlisht which I might or might not implement. I will add features when I have time or a real life use case for which I will use this project as test case.
 
@@ -26,11 +26,11 @@ There's (always) room for improvement but with basic features the project scores
 
 ![Lighthouse](https://i.imgur.com/HNCriHu.png)
 
-## Credits  
+## Credits
 
-* [Evan You](https://github.com/yyx990803) for creating [vue-hackernews-2.0](https://vue-hn.now.sh/)
-* [Lim Chee Aun](https://github.com/cheeaun) for creating [Hacker News (unofficial) API](https://github.com/cheeaun/node-hnapi)
-* Many others for sharing their Hackernews clones at [HNPWA](https://hnpwa.com/)
+- [Evan You](https://github.com/yyx990803) for creating [vue-hackernews-2.0](https://vue-hn.now.sh/)
+- [Lim Chee Aun](https://github.com/cheeaun) for creating [Hacker News (unofficial) API](https://github.com/cheeaun/node-hnapi)
+- Many others for sharing their Hackernews clones at [HNPWA](https://hnpwa.com/)
 
 ## License
 

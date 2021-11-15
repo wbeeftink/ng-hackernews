@@ -1,7 +1,5 @@
 <div class="container">
-
   <mat-card>
-
     <!-- Title -->
     <mat-card-title>
       {{ user?.id }}
@@ -9,14 +7,15 @@
 
     <!-- Subtitle -->
     <mat-card-subtitle>
-      <span>Karma: {{ user?.karma }}</span> |
-      <span title="Created on {{ user?.created_time | date: dateFormat }}">Created: {{ user?.created }}</span>
+      <span>Karma: {{ user?.karma }}</span>
+      |
+      <span title="Created on {{ user?.created_time | date: dateFormat }}">
+        Created: {{ user?.created }}
+      </span>
     </mat-card-subtitle>
-
   </mat-card>
 
   <mat-card>
-
     <!-- About -->
     <section *ngIf="user?.about" class="about">
       <h2>About</h2>
@@ -28,18 +27,22 @@
       <h2>Links</h2>
       <ul>
         <li>
-          <a href="https://news.ycombinator.com/submitted?id={{ user?.id }}" target="_blank">
+          <a
+            href="https://news.ycombinator.com/submitted?id={{ user?.id }}"
+            target="_blank"
+          >
             Submissions
           </a>
         </li>
         <li>
-          <a href="https://news.ycombinator.com/threads?id={{ user?.id }}" target="_blank">
+          <a
+            href="https://news.ycombinator.com/threads?id={{ user?.id }}"
+            target="_blank"
+          >
             Comments
           </a>
         </li>
       </ul>
     </section>
-
   </mat-card>
-
 </div>

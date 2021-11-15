@@ -1,13 +1,17 @@
 <mat-card>
-
   <!-- Points -->
-  <span class="large-points" title="{{ item.points | i18nPlural: pointsMapping }}">{{ item.points }}</span>
+  <span
+    class="large-points"
+    title="{{ item.points | i18nPlural: pointsMapping }}"
+  >
+    {{ item.points }}
+  </span>
 
   <div class="content">
-
     <!-- Title with domain -->
     <mat-card-title *ngIf="item.domain">
-      <a [href]="item.url" target="_blank" rel="noopener">{{ item.title }}</a> ({{ item.domain }})
+      <a [href]="item.url" target="_blank" rel="noopener">{{ item.title }}</a>
+      ({{ item.domain }})
     </mat-card-title>
 
     <!-- Title without domain -->
@@ -19,11 +23,17 @@
 
     <!-- Subtitle with meta data -->
     <mat-card-subtitle *ngIf="item.type !== 'job'">
-
       <!-- User -->
       <span *ngIf="item.user">
-        By <a [routerLink]="['/user', item.user]" title="Posted by {{ item.user }}">{{ item.user }}</a>
-      </span> |
+        By
+        <a
+          [routerLink]="['/user', item.user]"
+          title="Posted by {{ item.user }}"
+        >
+          {{ item.user }}
+        </a>
+      </span>
+      |
 
       <!-- Points -->
       <span class="points">
@@ -33,13 +43,15 @@
       <!-- Time -->
       <span title="Posted on {{ item.time | date: dateFormat }}">
         {{ item.time_ago }}
-      </span> |
+      </span>
+      |
 
       <!-- Comments -->
       <span>
-        <a [routerLink]="['/item', item.id]">{{ item.comments_count | i18nPlural: commentsMapping }}</a>
+        <a [routerLink]="['/item', item.id]">
+          {{ item.comments_count | i18nPlural: commentsMapping }}
+        </a>
       </span>
-
     </mat-card-subtitle>
 
     <!-- Subtitle with only time data -->
@@ -48,7 +60,5 @@
         {{ item.time_ago }}
       </span>
     </mat-card-subtitle>
-
   </div>
-
 </mat-card>

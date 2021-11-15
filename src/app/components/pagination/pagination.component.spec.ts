@@ -1,23 +1,23 @@
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { MatIconModule } from '@angular/material/icon';
+import { DebugElement } from "@angular/core";
+import { By } from "@angular/platform-browser";
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import { MatIconModule } from "@angular/material/icon";
 
-import { PaginationComponent } from './pagination.component';
+import { PaginationComponent } from "./pagination.component";
 
-describe('PaginationComponent', () => {
+describe("PaginationComponent", () => {
   let component: PaginationComponent;
   let fixture: ComponentFixture<PaginationComponent>;
   let element: DebugElement;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        MatIconModule,
-      ],
-      declarations: [PaginationComponent],
-    }).compileComponents();
-  }));
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [MatIconModule],
+        declarations: [PaginationComponent],
+      }).compileComponents();
+    })
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PaginationComponent);
@@ -28,65 +28,70 @@ describe('PaginationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render pages correctly', () => {
-    const textElement = element.query(By.css('span')).nativeElement as HTMLElement;
+  it("should render pages correctly", () => {
+    const textElement = element.query(By.css("span"))
+      .nativeElement as HTMLElement;
     const text = textElement.textContent.trim();
 
-    expect(text).toBe('1 / 10');
+    expect(text).toBe("1 / 10");
   });
 
-  it('should have enable or disable previous button correctly', () => {
-    const buttonElement = element.query(By.css('.previous')).nativeElement as HTMLElement;
+  it("should have enable or disable previous button correctly", () => {
+    const buttonElement = element.query(By.css(".previous"))
+      .nativeElement as HTMLElement;
 
     for (let i = 1; i <= component.maxPages; i++) {
       component.currentPage = i;
       fixture.detectChanges();
 
       if (i === 1) {
-        expect(buttonElement.hasAttribute('disabled')).toBe(true);
+        expect(buttonElement.hasAttribute("disabled")).toBe(true);
       } else {
-        expect(buttonElement.hasAttribute('disabled')).toBe(false);
+        expect(buttonElement.hasAttribute("disabled")).toBe(false);
       }
     }
   });
 
-  it('should have enable or disable next button correctly', () => {
-    const buttonElement = element.query(By.css('.next')).nativeElement as HTMLElement;
+  it("should have enable or disable next button correctly", () => {
+    const buttonElement = element.query(By.css(".next"))
+      .nativeElement as HTMLElement;
 
     for (let i = 1; i <= component.maxPages; i++) {
       component.currentPage = i;
       fixture.detectChanges();
 
       if (i === component.maxPages) {
-        expect(buttonElement.hasAttribute('disabled')).toBe(true);
+        expect(buttonElement.hasAttribute("disabled")).toBe(true);
       } else {
-        expect(buttonElement.hasAttribute('disabled')).toBe(false);
+        expect(buttonElement.hasAttribute("disabled")).toBe(false);
       }
     }
   });
 
-  it('should emit event with previous page when previous button is clicked', () => {
+  it("should emit event with previous page when previous button is clicked", () => {
     component.currentPage = 5;
-    spyOn(component.previous, 'emit');
+    spyOn(component.previous, "emit");
     fixture.detectChanges();
 
-    const buttonElement = element.query(By.css('.previous')).nativeElement as HTMLElement;
-    buttonElement.dispatchEvent(new Event('click'));
+    const buttonElement = element.query(By.css(".previous"))
+      .nativeElement as HTMLElement;
+    buttonElement.dispatchEvent(new Event("click"));
 
     expect(component.previous.emit).toHaveBeenCalledWith(4);
   });
 
-  it('should emit event with next page when next button is clicked', () => {
+  it("should emit event with next page when next button is clicked", () => {
     component.currentPage = 5;
-    spyOn(component.next, 'emit');
+    spyOn(component.next, "emit");
     fixture.detectChanges();
 
-    const buttonElement = element.query(By.css('.next')).nativeElement as HTMLElement;
-    buttonElement.dispatchEvent(new Event('click'));
+    const buttonElement = element.query(By.css(".next"))
+      .nativeElement as HTMLElement;
+    buttonElement.dispatchEvent(new Event("click"));
 
     expect(component.next.emit).toHaveBeenCalledWith(6);
   });

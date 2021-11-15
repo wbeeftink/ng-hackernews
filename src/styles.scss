@@ -1,11 +1,12 @@
-@import 'theme';
+@import "theme";
 
-html, body {
+html,
+body {
   min-height: 100%;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   padding: calc(3vh + 64px) 16px 3vh;
   margin: 0;
 }
@@ -32,8 +33,7 @@ pre {
   }
 }
 
-@media(max-width: 599px) {
-
+@media (max-width: 599px) {
   body {
     padding: calc(2vh + 58px) 16px 2vh;
   }

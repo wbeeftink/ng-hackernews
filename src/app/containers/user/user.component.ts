@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Title } from "@angular/platform-browser";
 
-import { Config } from '../../config';
-import { User } from '../../interfaces/user';
-import { ApiService } from '../../services/api.service';
+import { Config } from "../../config";
+import { User } from "../../interfaces/user";
+import { ApiService } from "../../services/api.service";
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss'],
+  selector: "app-user",
+  templateUrl: "./user.component.html",
+  styleUrls: ["./user.component.scss"],
 })
 export class UserComponent implements OnInit {
   user: User;
@@ -18,17 +18,15 @@ export class UserComponent implements OnInit {
   constructor(
     private titleService: Title,
     private apiService: ApiService,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.apiService
-        .getUserNew(params.name)
-        .subscribe((data: User) => {
-          this.user = data;
-          this.titleService.setTitle(Config.getTitle(data.id));
-        });
+    this.route.params.subscribe((params) => {
+      this.apiService.getUserNew(params.name).subscribe((data: User) => {
+        this.user = data;
+        this.titleService.setTitle(Config.getTitle(data.id));
+      });
     });
   }
 }

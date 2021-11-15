@@ -1,26 +1,29 @@
-import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Component } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Title } from "@angular/platform-browser";
 
-import { AbstractBaseListComponent } from '../../components/abstract-base-list/abstract-base-list.component';
-import { ApiService } from '../../services/api.service';
+import { AbstractBaseListComponent } from "../../components/abstract-base-list/abstract-base-list.component";
+import { ApiService } from "../../services/api.service";
 
 @Component({
-  selector: 'app-jobs',
-  templateUrl: '../../components/abstract-base-list/abstract-base-list.component.html',
-  styleUrls: ['../../components/abstract-base-list/abstract-base-list.component.scss'],
+  selector: "app-jobs",
+  templateUrl:
+    "../../components/abstract-base-list/abstract-base-list.component.html",
+  styleUrls: [
+    "../../components/abstract-base-list/abstract-base-list.component.scss",
+  ],
 })
 export class JobsComponent extends AbstractBaseListComponent {
   maxPages = 1;
-  routeName = 'jobs';
-  routeTitle = 'Jobs';
-  serviceMethod = 'getNewItems';
+  routeName = "jobs";
+  routeTitle = "Jobs";
+  serviceMethod = "getNewItems";
 
   constructor(
     titleService: Title,
     apiService: ApiService,
     router: Router,
-    route: ActivatedRoute,
+    route: ActivatedRoute
   ) {
     super(titleService, apiService, router, route);
   }

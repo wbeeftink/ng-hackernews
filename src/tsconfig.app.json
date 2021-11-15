@@ -8,11 +8,6 @@
     "strictInjectionParameter": true,
     "fullTemplateTypeCheck": true
   },
-  "files": [
-    "main.ts",
-    "polyfills.ts"
-  ],
-  "include": [
-    "src/**/*.d.ts"
-  ]
+  "files": ["main.ts", "polyfills.ts"],
+  "include": ["src/**/*.d.ts"]
 }

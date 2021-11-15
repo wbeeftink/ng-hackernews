@@ -34,15 +34,13 @@ a {
   margin-left: auto;
 }
 
-@media(max-width: 599px) {
-
+@media (max-width: 599px) {
   .made-by {
     display: none;
   }
 }
 
-@media(max-width: 399px) {
-
+@media (max-width: 399px) {
   .logo {
     margin-right: 7px;
   }

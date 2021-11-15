@@ -1,9 +1,8 @@
 <mat-toolbar color="primary">
   <div class="container">
-
     <!-- Logo -->
     <a routerLink="/" class="logo">
-      <img src="assets/logo.svg" alt="NgHackernews">
+      <img src="assets/logo.svg" alt="NgHackernews" />
     </a>
 
     <!-- Navigation items -->
@@ -11,7 +10,8 @@
       *ngFor="let navItem of navItems"
       [routerLink]="navItem.link"
       routerLinkActive="active"
-      mat-button>
+      mat-button
+    >
       {{ navItem.title }}
     </a>
 
@@ -20,9 +20,9 @@
       href="https://github.com/wbeeftink/ng-hackernews"
       target="_blank"
       rel="noopener"
-      class="made-by">
+      class="made-by"
+    >
       Made with Angular
     </a>
-
   </div>
 </mat-toolbar>

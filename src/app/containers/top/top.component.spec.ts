@@ -1,33 +1,30 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { MatIconModule } from "@angular/material/icon";
+import { MatCardModule } from "@angular/material/card";
 
-import { TopComponent } from './top.component';
-import { PaginationComponent } from '../../components/pagination/pagination.component';
-import { FeedItemComponent } from '../../components/feed-item/feed-item.component';
+import { TopComponent } from "./top.component";
+import { PaginationComponent } from "../../components/pagination/pagination.component";
+import { FeedItemComponent } from "../../components/feed-item/feed-item.component";
 
-describe('TopComponent', () => {
+describe("TopComponent", () => {
   let component: TopComponent;
   let fixture: ComponentFixture<TopComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        HttpClientTestingModule,
-        MatIconModule,
-        MatCardModule,
-      ],
-      declarations: [
-        TopComponent,
-        PaginationComponent,
-        FeedItemComponent,
-      ],
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          RouterTestingModule,
+          HttpClientTestingModule,
+          MatIconModule,
+          MatCardModule,
+        ],
+        declarations: [TopComponent, PaginationComponent, FeedItemComponent],
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TopComponent);
@@ -35,7 +32,7 @@ describe('TopComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
