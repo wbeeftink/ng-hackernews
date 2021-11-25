@@ -74,7 +74,7 @@ describe("PaginationComponent", () => {
 
   it("should emit event with previous page when previous button is clicked", () => {
     component.currentPage = 5;
-    spyOn(component.previous, "emit");
+    jest.spyOn(component.previous, "emit");
     fixture.detectChanges();
 
     const buttonElement = element.query(By.css(".previous"))
@@ -86,7 +86,7 @@ describe("PaginationComponent", () => {
 
   it("should emit event with next page when next button is clicked", () => {
     component.currentPage = 5;
-    spyOn(component.next, "emit");
+    jest.spyOn(component.next, "emit");
     fixture.detectChanges();
 
     const buttonElement = element.query(By.css(".next"))
