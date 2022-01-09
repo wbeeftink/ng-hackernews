@@ -1,6 +1,5 @@
 @use "@angular/material" as mat;
 
-$primary: mat.define-palette(mat.$orange-palette, A700);
+$primary: mat.define-palette(mat.$orange-palette, "A700");
 $accent: mat.define-palette(mat.$teal-palette);
-
 $theme: mat.define-light-theme($primary, $accent);

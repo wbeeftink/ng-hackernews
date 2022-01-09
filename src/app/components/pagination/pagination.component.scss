@@ -1,10 +1,9 @@
 @use "@angular/material" as mat;
 
 :host {
-  @include mat.elevation(1);
   align-items: center;
   background-color: #fff;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba 0 0 0 54%;
   display: flex;
   font-size: 14px;
   height: 56px;
@@ -14,6 +13,8 @@
   top: 56px;
   width: 100%;
   z-index: 100;
+
+  @include mat.elevation(1);
 
   @media (min-width: 599px) {
     height: 64px;
