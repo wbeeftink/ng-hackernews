@@ -99,7 +99,6 @@
       }
     }
   },
-  "defaultProject": "ng-hackernews",
   "cli": {
     "packageManager": "npm",
     "defaultCollection": "@angular-eslint/schematics"
