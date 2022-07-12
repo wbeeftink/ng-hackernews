@@ -99,9 +99,11 @@
       }
     }
   },
-  "defaultProject": "ng-hackernews",
   "cli": {
     "packageManager": "npm",
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ],
+    "analytics": false
   }
 }
