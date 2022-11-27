@@ -52,7 +52,7 @@ import { PaginationComponent } from "./components/pagination/pagination.componen
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: "legacy" }),
+    RouterModule.forRoot(routes),
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
