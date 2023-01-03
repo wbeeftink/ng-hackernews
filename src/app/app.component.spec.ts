@@ -9,14 +9,12 @@ describe("AppComponent", () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [RouterTestingModule, MatToolbarModule],
-        declarations: [AppComponent, HeaderComponent],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule, MatToolbarModule],
+      declarations: [AppComponent, HeaderComponent],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
@@ -24,10 +22,7 @@ describe("AppComponent", () => {
     fixture.detectChanges();
   });
 
-  it(
-    "should create the app",
-    waitForAsync(() => {
-      expect(component).toBeTruthy();
-    })
-  );
+  it("should create the app", waitForAsync(() => {
+    expect(component).toBeTruthy();
+  }));
 });

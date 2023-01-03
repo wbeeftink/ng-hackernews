@@ -23,14 +23,12 @@ describe("FeedItemComponent", () => {
   let fixture: ComponentFixture<FeedItemComponent>;
   let element: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [RouterTestingModule, MatCardModule],
-        declarations: [FeedItemComponent],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule, MatCardModule],
+      declarations: [FeedItemComponent],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FeedItemComponent);

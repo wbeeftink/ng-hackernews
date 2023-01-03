@@ -12,19 +12,17 @@ describe("NewComponent", () => {
   let component: NewComponent;
   let fixture: ComponentFixture<NewComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          RouterTestingModule,
-          HttpClientTestingModule,
-          MatIconModule,
-          MatCardModule,
-        ],
-        declarations: [NewComponent, PaginationComponent, FeedItemComponent],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+        MatIconModule,
+        MatCardModule,
+      ],
+      declarations: [NewComponent, PaginationComponent, FeedItemComponent],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NewComponent);

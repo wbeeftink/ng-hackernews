@@ -12,19 +12,17 @@ describe("TopComponent", () => {
   let component: TopComponent;
   let fixture: ComponentFixture<TopComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          RouterTestingModule,
-          HttpClientTestingModule,
-          MatIconModule,
-          MatCardModule,
-        ],
-        declarations: [TopComponent, PaginationComponent, FeedItemComponent],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+        MatIconModule,
+        MatCardModule,
+      ],
+      declarations: [TopComponent, PaginationComponent, FeedItemComponent],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TopComponent);

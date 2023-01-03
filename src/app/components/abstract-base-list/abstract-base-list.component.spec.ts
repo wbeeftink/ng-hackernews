@@ -12,23 +12,21 @@ describe("AbstractBaseListComponent", () => {
   let component: AbstractBaseListComponent;
   let fixture: ComponentFixture<AbstractBaseListComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          RouterTestingModule,
-          HttpClientTestingModule,
-          MatIconModule,
-          MatCardModule,
-        ],
-        declarations: [
-          AbstractBaseListComponent,
-          PaginationComponent,
-          FeedItemComponent,
-        ],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+        MatIconModule,
+        MatCardModule,
+      ],
+      declarations: [
+        AbstractBaseListComponent,
+        PaginationComponent,
+        FeedItemComponent,
+      ],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AbstractBaseListComponent);

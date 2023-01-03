@@ -11,14 +11,12 @@ describe("HeaderComponent", () => {
   let fixture: ComponentFixture<HeaderComponent>;
   let element: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [RouterTestingModule, MatToolbarModule],
-        declarations: [HeaderComponent],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule, MatToolbarModule],
+      declarations: [HeaderComponent],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HeaderComponent);
