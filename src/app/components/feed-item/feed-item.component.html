@@ -2,7 +2,7 @@
   <!-- Points -->
   <span
     class="large-points"
-    title="{{ item.points | i18nPlural: pointsMapping }}"
+    title="{{ item.points | i18nPlural : pointsMapping }}"
   >
     {{ item.points }}
   </span>
@@ -37,11 +37,11 @@
 
       <!-- Points -->
       <span class="points">
-        {{ item.points | i18nPlural: pointsMapping }} |
+        {{ item.points | i18nPlural : pointsMapping }} |
       </span>
 
       <!-- Time -->
-      <span title="Posted on {{ item.time | date: dateFormat }}">
+      <span title="Posted on {{ item.time | date : dateFormat }}">
         {{ item.time_ago }}
       </span>
       |
@@ -49,7 +49,7 @@
       <!-- Comments -->
       <span>
         <a [routerLink]="['/item', item.id]">
-          {{ item.comments_count | i18nPlural: commentsMapping }}
+          {{ item.comments_count | i18nPlural : commentsMapping }}
         </a>
       </span>
     </mat-card-subtitle>

@@ -10,14 +10,12 @@ describe("PaginationComponent", () => {
   let fixture: ComponentFixture<PaginationComponent>;
   let element: DebugElement;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [MatIconModule],
-        declarations: [PaginationComponent],
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [MatIconModule],
+      declarations: [PaginationComponent],
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PaginationComponent);
