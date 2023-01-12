@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-# Update Angular
-ng update @angular/cli @angular/core -C --force
+# Update Angular (see `ng update --help`)
+ng update @angular/cli @angular/core --create-commits --force
+ng update @angular/material @angular/cdk --create-commits --force
 
-# Update Angular Material
-ng update @angular/material @angular/cdk -C --force
+# Update node modules (see `npm help update`)
+npm update
