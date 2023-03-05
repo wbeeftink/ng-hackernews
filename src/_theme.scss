@@ -1,6 +1,5 @@
 @use "@angular/material" as mat;
 @import "variables";
-
-@include mat.legacy-core();
-@include mat.all-legacy-component-typographies();
+@include mat.legacy-core;
+@include mat.all-legacy-component-typographies;
 @include mat.all-legacy-component-themes($theme);
