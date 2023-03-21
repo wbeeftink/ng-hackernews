@@ -1,0 +1,7 @@
+[build]
+  base = "/"
+  publish = "/dist/ng-hackernews"
+  command = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
