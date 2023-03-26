@@ -1,0 +1,38 @@
+[
+  {
+    "id": 35313171,
+    "title": "Show HN: GPT-4 Reverse Turing Test",
+    "points": 110,
+    "user": "rain1",
+    "time": 1679829094,
+    "time_ago": "3 hours ago",
+    "comments_count": 74,
+    "type": "link",
+    "url": "https://gist.github.com/rain-1/3bf56122b0ebeac929dff0f881ee8e4c",
+    "domain": "gist.github.com"
+  },
+  {
+    "id": 35314156,
+    "title": "Show HN: Pangolier – Write UI tests for the web platforms in YAML",
+    "points": 3,
+    "user": "rohanharikr",
+    "time": 1679836979,
+    "time_ago": "an hour ago",
+    "comments_count": 0,
+    "type": "link",
+    "url": "https://pangolier.dev//",
+    "domain": "pangolier.dev"
+  },
+  {
+    "id": 35313420,
+    "title": "Show HN: Generate your guided meditation (with human-like voice) using GPT-4",
+    "points": 3,
+    "user": "yschermer",
+    "time": 1679831046,
+    "time_ago": "2 hours ago",
+    "comments_count": 0,
+    "type": "link",
+    "url": "https://www.guided.rest/",
+    "domain": "guided.rest"
+  }
+]
