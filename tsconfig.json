@@ -11,10 +11,26 @@
     "target": "ES2022",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "alwaysStrict": true,
+    "strictNullChecks": false,
+    "strictPropertyInitialization": false,
+
+    "noImplicitAny": false,
+
+    "strictFunctionTypes": false,
+
+    "strictBindCallApply": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
   },
   "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "preserveWhitespaces": true
+    "strictTemplates": true,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true
   }
 }
