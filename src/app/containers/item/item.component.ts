@@ -24,8 +24,9 @@ export class ItemComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe((params: ParamMap) => {
-      this.apiService.getItem(params["id"]).subscribe((data: Item) => {
+    this.route.paramMap.subscribe((paramMap) => {
+      const id = Number.parseInt(paramMap.get("id"));
+      this.apiService.getItem(id).subscribe((data: Item) => {
         this.item = data;
         this.titleService.setTitle(Config.getTitle(data.title));
       });

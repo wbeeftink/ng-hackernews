@@ -18,7 +18,7 @@
 
     "noImplicitAny": false,
 
-    "strictFunctionTypes": false,
+    "strictFunctionTypes": true,
 
     "strictBindCallApply": true,
     "noImplicitThis": true,
