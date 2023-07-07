@@ -1,32 +1,33 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 
 import { Config } from "../../config";
 import { User } from "../../interfaces/user";
 import { ApiService } from "../../services/api.service";
+import { Observable, switchMap, tap } from "rxjs";
 
 @Component({
   selector: "app-user",
   templateUrl: "./user.component.html",
   styleUrls: ["./user.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserComponent implements OnInit {
-  user: User;
-  dateFormat = Config.dateFormat;
+export class UserComponent {
+  readonly user$: Observable<User>;
+  readonly dateFormat = Config.dateFormat;
 
   constructor(
     private titleService: Title,
     private apiService: ApiService,
     private route: ActivatedRoute
-  ) {}
-
-  ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.apiService.getUserNew(params.name).subscribe((data: User) => {
-        this.user = data;
-        this.titleService.setTitle(Config.getTitle(data.id));
-      });
-    });
+  ) {
+    this.user$ = this.route.paramMap.pipe(
+      switchMap((paramMap) => {
+        const name = paramMap.get("name") ?? "";
+        return this.apiService.getUserNew(name);
+      }),
+      tap((data) => this.titleService.setTitle(Config.getTitle(data.id)))
+    );
   }
 }

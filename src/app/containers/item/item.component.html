@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="item$ | async as item" class="container">
   <!-- Item -->
   <mat-card class="item">
     <!-- Title with domain -->

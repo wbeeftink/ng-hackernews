@@ -8,10 +8,11 @@ import { ApiService, API } from "./api.service";
 import { FeedItem } from "../interfaces/feed-item";
 import { Item } from "../interfaces/item";
 import { User } from "../interfaces/user";
+import { BaseListServiceMethod } from "../components/abstract-base-list/abstract-base-list.component";
 
 interface Type {
   type: string;
-  serviceMethod: string;
+  serviceMethod: BaseListServiceMethod;
   path: string;
 }
 

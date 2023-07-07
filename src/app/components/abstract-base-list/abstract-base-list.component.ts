@@ -1,45 +1,63 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
-import { Observable } from "rxjs";
+import { EMPTY, map, Observable, switchMap } from "rxjs";
 
 import { Config } from "../../config";
 import { FeedItem } from "../../interfaces/feed-item";
 import { ApiService } from "../../services/api.service";
 
+export type BaseListServiceMethod =
+  | "getTopItems"
+  | "getNewItems"
+  | "getShowItems"
+  | "getAskItems"
+  | "getJobsItems";
+
 @Component({
   selector: "app-abstract--base-list",
   templateUrl: "./abstract-base-list.component.html",
   styleUrls: ["./abstract-base-list.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AbstractBaseListComponent implements OnInit {
-  items$: Observable<FeedItem[]>;
-  currentPage: number;
-  maxPages: number;
-  routeName: string;
-  routeTitle: string;
-  serviceMethod: string;
+export class AbstractBaseListComponent {
+  readonly items$: Observable<FeedItem[]>;
+  readonly currentPage$: Observable<number>;
+  maxPages!: number;
+  routeName!: string;
+  routeTitle!: string;
+  serviceMethod!: BaseListServiceMethod;
 
   constructor(
     private titleService: Title,
     private apiService: ApiService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
-
-  ngOnInit() {
+  ) {
     // Update the title
-    this.titleService.setTitle(Config.getTitle(this.routeTitle));
+    if (this.routeTitle) {
+      this.titleService.setTitle(Config.getTitle(this.routeTitle));
+    }
 
-    this.route.params.subscribe((params) => {
-      // Grab page number from the parameters, otherwise show the first page by default
-      this.currentPage = params["page"] ? Number(params["page"]) : 1;
+    // Grab page number from the parameters, otherwise show the first page by default
+    this.currentPage$ = this.route.paramMap.pipe(
+      map((paramMap) => {
+        return paramMap.has("page") ? Number(paramMap.get("page")) : 1;
+      })
+    );
 
-      // Get the current feed items by passing the service method (top, new, .etc)
-      if (typeof this.apiService[this.serviceMethod] === "function") {
-        this.items$ = this.apiService[this.serviceMethod](this.currentPage);
-      }
-    });
+    // Make the API call based on the current page
+    this.items$ = this.currentPage$.pipe(
+      switchMap((currentPage) => {
+        if (
+          this.serviceMethod !== undefined &&
+          typeof this.apiService[this.serviceMethod] === "function"
+        ) {
+          return this.apiService[this.serviceMethod](currentPage);
+        }
+        return EMPTY;
+      })
+    );
   }
 
   goToPage(page: number) {

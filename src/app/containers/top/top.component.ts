@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 
@@ -12,12 +12,13 @@ import { ApiService } from "../../services/api.service";
   styleUrls: [
     "../../components/abstract-base-list/abstract-base-list.component.scss",
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TopComponent extends AbstractBaseListComponent {
   maxPages = 10;
   routeName = "top";
   routeTitle = "Top";
-  serviceMethod = "getTopItems";
+  serviceMethod = "getTopItems" as const;
 
   constructor(
     titleService: Title,

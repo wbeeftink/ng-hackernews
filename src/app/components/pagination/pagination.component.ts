@@ -1,15 +1,29 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 
 @Component({
   selector: "app-pagination",
   templateUrl: "./pagination.component.html",
   styleUrls: ["./pagination.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PaginationComponent {
-  @Input() currentPage: number;
-  @Input() maxPages: number;
-  @Output() previous: EventEmitter<number> = new EventEmitter<number>();
-  @Output() next: EventEmitter<number> = new EventEmitter<number>();
+  @Input()
+  currentPage!: number;
+
+  @Input()
+  maxPages!: number;
+
+  @Output()
+  readonly previous: EventEmitter<number> = new EventEmitter<number>();
+
+  @Output()
+  readonly next: EventEmitter<number> = new EventEmitter<number>();
 
   disablePrevious() {
     return this.currentPage === 1;

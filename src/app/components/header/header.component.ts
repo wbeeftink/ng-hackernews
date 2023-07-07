@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 
 import { NavItem } from "../../interfaces/nav-item";
 
@@ -6,6 +6,7 @@ import { NavItem } from "../../interfaces/nav-item";
   selector: "app-header",
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
   navItems: NavItem[] = [

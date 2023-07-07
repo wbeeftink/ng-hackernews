@@ -1,16 +1,16 @@
-<div class="container">
+<div *ngIf="user$ | async as user" class="container">
   <mat-card>
     <!-- Title -->
     <mat-card-title>
-      {{ user?.id }}
+      {{ user.id }}
     </mat-card-title>
 
     <!-- Subtitle -->
     <mat-card-subtitle>
-      <span>Karma: {{ user?.karma }}</span>
+      <span>Karma: {{ user.karma }}</span>
       |
-      <span title="Created on {{ user?.created_time | date : dateFormat }}">
-        Created: {{ user?.created }}
+      <span title="Created on {{ user.created_time | date : dateFormat }}">
+        Created: {{ user.created }}
       </span>
     </mat-card-subtitle>
   </mat-card>
@@ -19,7 +19,7 @@
     <!-- About -->
     <section *ngIf="user?.about" class="about">
       <h2>About</h2>
-      <div [innerHTML]="user?.about" class="content"></div>
+      <div [innerHTML]="user.about" class="content"></div>
     </section>
 
     <!-- External links -->
@@ -28,7 +28,7 @@
       <ul>
         <li>
           <a
-            href="https://news.ycombinator.com/submitted?id={{ user?.id }}"
+            href="https://news.ycombinator.com/submitted?id={{ user.id }}"
             target="_blank"
           >
             Submissions
@@ -36,7 +36,7 @@
         </li>
         <li>
           <a
-            href="https://news.ycombinator.com/threads?id={{ user?.id }}"
+            href="https://news.ycombinator.com/threads?id={{ user.id }}"
             target="_blank"
           >
             Comments
