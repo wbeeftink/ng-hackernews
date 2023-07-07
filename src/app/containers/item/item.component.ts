@@ -5,6 +5,7 @@ import { Title } from "@angular/platform-browser";
 import { Config } from "../../config";
 import { Item } from "../../interfaces/item";
 import { ApiService } from "../../services/api.service";
+import { map, filter, switchMap } from "rxjs";
 
 @Component({
   selector: "app-item",
@@ -24,12 +25,18 @@ export class ItemComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe((paramMap) => {
-      const id = Number.parseInt(paramMap.get("id"));
-      this.apiService.getItem(id).subscribe((data: Item) => {
+    this.route.paramMap
+      .pipe(
+        map((paramMap) => {
+          const id = paramMap.get("id");
+          return typeof id === "string" ? Number.parseInt(id) : NaN;
+        }),
+        filter((id) => !Number.isNaN(id)),
+        switchMap((id) => this.apiService.getItem(id))
+      )
+      .subscribe((data) => {
         this.item = data;
         this.titleService.setTitle(Config.getTitle(data.title));
       });
-    });
   }
 }
