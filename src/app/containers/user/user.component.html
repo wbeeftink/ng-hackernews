@@ -1,4 +1,4 @@
-<div *ngIf="user" class="container">
+<div *ngIf="user$ | async as user" class="container">
   <mat-card>
     <!-- Title -->
     <mat-card-title>

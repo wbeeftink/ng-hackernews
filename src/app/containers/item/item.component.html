@@ -1,59 +1,63 @@
-<div *ngIf="item" class="container">
+<div *ngIf="item$ | async as item" class="container">
   <!-- Item -->
   <mat-card class="item">
     <!-- Title with domain -->
-    <mat-card-title *ngIf="item.domain">
-      <a [href]="item.url" target="_blank" rel="noopener">{{ item.title }}</a>
-      ({{ item.domain }})
+    <mat-card-title *ngIf="item?.domain">
+      <a [href]="item?.url" target="_blank" rel="noopener">{{ item?.title }}</a>
+      ({{ item?.domain }})
     </mat-card-title>
 
     <!-- Title without domain -->
-    <mat-card-title *ngIf="!item.domain">
-      {{ item.title }}
+    <mat-card-title *ngIf="!item?.domain">
+      {{ item?.title }}
     </mat-card-title>
 
     <!-- Subtitle with meta data -->
-    <mat-card-subtitle *ngIf="item.type !== 'job'">
+    <mat-card-subtitle *ngIf="item?.type !== 'job'">
       <!-- User -->
-      <span *ngIf="item.user">
+      <span *ngIf="item?.user">
         By
         <a
-          [routerLink]="['/user', item.user]"
-          title="Posted by {{ item.user }}"
+          [routerLink]="['/user', item?.user]"
+          title="Posted by {{ item?.user }}"
         >
-          {{ item.user }}
+          {{ item?.user }}
         </a>
       </span>
       |
 
       <!-- Points -->
-      <span *ngIf="item.points">
-        {{ item.points | i18nPlural : pointsMapping }}
+      <span *ngIf="item?.points">
+        {{ item?.points | i18nPlural : pointsMapping }}
       </span>
       |
 
       <!-- Time -->
-      <span title="Posted on {{ item.time | date : dateFormat }}">
-        {{ item.time_ago }}
+      <span title="Posted on {{ item?.time | date : dateFormat }}">
+        {{ item?.time_ago }}
       </span>
     </mat-card-subtitle>
 
     <!-- Subtitle without meta data -->
-    <mat-card-subtitle *ngIf="item.type === 'job'">
-      <span [title]="item.time">
-        {{ item.time_ago }}
+    <mat-card-subtitle *ngIf="item?.type === 'job'">
+      <span [title]="item?.time">
+        {{ item?.time_ago }}
       </span>
     </mat-card-subtitle>
 
     <!-- Content -->
-    <div *ngIf="item.content" [innerHTML]="item.content" class="content"></div>
+    <div
+      *ngIf="item?.content"
+      [innerHTML]="item?.content"
+      class="content"
+    ></div>
   </mat-card>
 
   <!-- Comments -->
   <mat-card class="comments">
-    <h2>{{ item.comments_count | i18nPlural : commentsMapping }}</h2>
+    <h2>{{ item?.comments_count | i18nPlural : commentsMapping }}</h2>
     <app-comment
-      *ngFor="let comment of item.comments"
+      *ngFor="let comment of item?.comments"
       [comment]="comment"
     ></app-comment>
   </mat-card>

@@ -74,7 +74,7 @@ describe("CommentComponent", () => {
   it("should show the user", () => {
     const userElement = element.query(By.css(".user"))
       .nativeElement as HTMLElement;
-    const value = userElement.textContent.trim();
+    const value = userElement.textContent!.trim();
 
     expect(userElement).toBeDefined();
     expect(value).toBe(mockComment.user);
@@ -83,7 +83,7 @@ describe("CommentComponent", () => {
   it("should render the time", () => {
     const timeElement = element.query(By.css(".time"))
       .nativeElement as HTMLElement;
-    const value = timeElement.textContent.trim();
+    const value = timeElement.textContent!.trim();
     const title = timeElement.title;
 
     expect(timeElement).toBeDefined();
@@ -94,7 +94,7 @@ describe("CommentComponent", () => {
   it("should render the content", () => {
     const contentElement = element.query(By.css(".content"))
       .nativeElement as HTMLElement;
-    const value = contentElement.textContent.trim();
+    const value = contentElement.textContent!.trim();
 
     expect(contentElement).toBeDefined();
     expect(value).toBe(mockComment.content);

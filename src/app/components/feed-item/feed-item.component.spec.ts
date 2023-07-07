@@ -1,4 +1,4 @@
-import { DebugElement, ElementRef } from "@angular/core";
+import { DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
 import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
@@ -32,26 +32,33 @@ describe("FeedItemComponent", () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FeedItemComponent);
-    component = fixture.componentInstance;
-    component.item = { ...mockItem };
     element = fixture.debugElement;
-    fixture.detectChanges();
+    component = fixture.componentInstance;
   });
 
   it("should create", () => {
+    component.item = { ...mockItem };
+    fixture.detectChanges();
+
     expect(component).toBeTruthy();
   });
 
   it("should show the title without the domain", () => {
+    component.item = { ...mockItem };
+    fixture.detectChanges();
+
     const titleElement = element.query(By.css("mat-card-title"))
       .nativeElement as HTMLElement;
-    const title = titleElement.textContent.trim();
+    const title = titleElement.textContent!.trim();
 
     expect(titleElement).toBeDefined();
     expect(title).toBe(mockItem.title);
   });
 
   it("should link to the item detail", () => {
+    component.item = { ...mockItem };
+    fixture.detectChanges();
+
     const titleLinkElement = element.query(By.css("mat-card-title a"))
       .nativeElement as HTMLElement;
     const href = titleLinkElement.getAttribute("href");
@@ -61,9 +68,12 @@ describe("FeedItemComponent", () => {
   });
 
   it("should compose a subtitle of several fields", () => {
+    component.item = { ...mockItem };
+    fixture.detectChanges();
+
     const subtitleElement = element.query(By.css("mat-card-subtitle"))
       .nativeElement as HTMLElement;
-    const subtitle = subtitleElement.textContent.trim().replace(/\s\s+/g, " "); // Remove any multiple spaces with a single space
+    const subtitle = subtitleElement.textContent!.trim().replace(/\s\s+/g, " "); // Remove any multiple spaces with a single space
 
     expect(subtitleElement).toBeDefined();
     expect(subtitle).toBe(
@@ -72,12 +82,15 @@ describe("FeedItemComponent", () => {
   });
 
   it("should compose a subtitle of only the time ago for jobs", () => {
-    component.item.type = "job";
+    component.item = {
+      ...mockItem,
+      type: "job",
+    };
     fixture.detectChanges();
 
     const subtitleElement = element.query(By.css("mat-card-subtitle"))
       .nativeElement as HTMLElement;
-    const subtitle = subtitleElement.textContent.trim();
+    const subtitle = subtitleElement.textContent!.trim();
 
     expect(subtitleElement).toBeDefined();
     expect(subtitle).toBe(mockItem.time_ago);
@@ -85,15 +98,18 @@ describe("FeedItemComponent", () => {
 
   it("should link externally and show the domain", () => {
     const domain = "https://angular.io";
-    component.item.domain = domain;
-    component.item.url = domain;
+    component.item = {
+      ...mockItem,
+      domain,
+      url: domain,
+    };
     fixture.detectChanges();
 
     const titleElement = element.query(By.css("mat-card-title"))
       .nativeElement as HTMLElement;
     const titleLinkElement = element.query(By.css("mat-card-title a"))
       .nativeElement as HTMLElement;
-    const title = titleElement.textContent.trim();
+    const title = titleElement.textContent!.trim();
     const href = titleLinkElement.getAttribute("href");
 
     expect(titleElement).toBeDefined();

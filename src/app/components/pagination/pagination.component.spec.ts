@@ -20,10 +20,7 @@ describe("PaginationComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PaginationComponent);
     component = fixture.componentInstance;
-    component.currentPage = 1;
-    component.maxPages = 10;
     element = fixture.debugElement;
-    fixture.detectChanges();
   });
 
   it("should create", () => {
@@ -31,49 +28,82 @@ describe("PaginationComponent", () => {
   });
 
   it("should render pages correctly", () => {
+    component.currentPage = 1;
+    component.maxPages = 10;
+    fixture.detectChanges();
+
     const textElement = element.query(By.css("span"))
       .nativeElement as HTMLElement;
-    const text = textElement.textContent.trim();
+    const text = textElement.textContent!.trim();
 
     expect(text).toBe("1 / 10");
   });
 
-  it("should have enable or disable previous button correctly", () => {
+  it("should disable previous button on first page", () => {
+    component.currentPage = 1;
+    component.maxPages = 3;
+    fixture.detectChanges();
+
     const buttonElement = element.query(By.css(".previous"))
       .nativeElement as HTMLElement;
 
-    for (let i = 1; i <= component.maxPages; i++) {
-      component.currentPage = i;
-      fixture.detectChanges();
-
-      if (i === 1) {
-        expect(buttonElement.hasAttribute("disabled")).toBe(true);
-      } else {
-        expect(buttonElement.hasAttribute("disabled")).toBe(false);
-      }
-    }
+    expect(buttonElement.hasAttribute("disabled")).toBeTruthy();
   });
 
-  it("should have enable or disable next button correctly", () => {
+  it("should not disable button on subsequent pages", () => {
+    component.currentPage = 2;
+    component.maxPages = 3;
+    fixture.detectChanges();
+
+    const buttonElement = element.query(By.css(".previous"))
+      .nativeElement as HTMLElement;
+
+    expect(buttonElement.hasAttribute("disabled")).toBeFalsy();
+  });
+
+  it("should disable next button on last page", () => {
+    component.currentPage = 3;
+    component.maxPages = 3;
+    fixture.detectChanges();
+
     const buttonElement = element.query(By.css(".next"))
       .nativeElement as HTMLElement;
 
-    for (let i = 1; i <= component.maxPages; i++) {
-      component.currentPage = i;
-      fixture.detectChanges();
+    expect(buttonElement.hasAttribute("disabled")).toBeTruthy();
+  });
 
-      if (i === component.maxPages) {
-        expect(buttonElement.hasAttribute("disabled")).toBe(true);
-      } else {
-        expect(buttonElement.hasAttribute("disabled")).toBe(false);
-      }
-    }
+  it("should not disable next button on pages before the last page", () => {
+    component.currentPage = 2;
+    component.maxPages = 3;
+    fixture.detectChanges();
+
+    const buttonElement = element.query(By.css(".next"))
+      .nativeElement as HTMLElement;
+
+    expect(buttonElement.hasAttribute("disabled")).toBeFalsy();
+  });
+
+  it("should disable previous and next buttons in case of a single page", () => {
+    component.currentPage = 1;
+    component.maxPages = 1;
+    fixture.detectChanges();
+
+    const previousButtonElement = element.query(By.css(".previous"))
+      .nativeElement as HTMLElement;
+
+    const nextButtonElement = element.query(By.css(".next"))
+      .nativeElement as HTMLElement;
+
+    expect(previousButtonElement.hasAttribute("disabled")).toBeTruthy();
+    expect(nextButtonElement.hasAttribute("disabled")).toBeTruthy();
   });
 
   it("should emit event with previous page when previous button is clicked", () => {
     component.currentPage = 5;
-    jest.spyOn(component.previous, "emit");
+    component.maxPages = 10;
     fixture.detectChanges();
+
+    jest.spyOn(component.previous, "emit");
 
     const buttonElement = element.query(By.css(".previous"))
       .nativeElement as HTMLElement;
@@ -84,8 +114,10 @@ describe("PaginationComponent", () => {
 
   it("should emit event with next page when next button is clicked", () => {
     component.currentPage = 5;
-    jest.spyOn(component.next, "emit");
+    component.maxPages = 10;
     fixture.detectChanges();
+
+    jest.spyOn(component.next, "emit");
 
     const buttonElement = element.query(By.css(".next"))
       .nativeElement as HTMLElement;

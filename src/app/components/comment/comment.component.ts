@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 import { Config } from "../../config";
 
 import { Item } from "../../interfaces/item";
@@ -7,8 +7,11 @@ import { Item } from "../../interfaces/item";
   selector: "app-comment",
   templateUrl: "./comment.component.html",
   styleUrls: ["./comment.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CommentComponent {
-  @Input() comment: Item;
-  dateFormat = Config.dateFormat;
+  @Input()
+  comment!: Item;
+
+  readonly dateFormat = Config.dateFormat;
 }

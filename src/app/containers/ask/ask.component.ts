@@ -1,8 +1,11 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 
-import { AbstractBaseListComponent, BaseListServiceMethod } from "../../components/abstract-base-list/abstract-base-list.component";
+import {
+  AbstractBaseListComponent,
+  BaseListServiceMethod,
+} from "../../components/abstract-base-list/abstract-base-list.component";
 import { ApiService } from "../../services/api.service";
 
 @Component({
@@ -12,6 +15,7 @@ import { ApiService } from "../../services/api.service";
   styleUrls: [
     "../../components/abstract-base-list/abstract-base-list.component.scss",
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AskComponent extends AbstractBaseListComponent {
   maxPages = 2;
