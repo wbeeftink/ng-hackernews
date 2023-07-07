@@ -17,7 +17,7 @@ export class NewComponent extends AbstractBaseListComponent {
   maxPages = 10;
   routeName = "new";
   routeTitle = "New";
-  serviceMethod = "getNewItems";
+  serviceMethod = "getNewItems" as const;
 
   constructor(
     titleService: Title,

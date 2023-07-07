@@ -8,7 +8,7 @@ Sentry.init({
 
 @Injectable()
 export class SentryErrorHandler implements ErrorHandler {
-  handleError(error) {
+  handleError(error: any) {
     Sentry.captureException(error.originalError || error);
     throw error;
   }

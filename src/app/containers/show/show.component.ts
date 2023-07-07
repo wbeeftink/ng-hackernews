@@ -17,7 +17,7 @@ export class ShowComponent extends AbstractBaseListComponent {
   maxPages = 2;
   routeName = "show";
   routeTitle = "Show";
-  serviceMethod = "getShowItems";
+  serviceMethod = "getShowItems" as const;
 
   constructor(
     titleService: Title,

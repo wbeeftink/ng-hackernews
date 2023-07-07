@@ -17,7 +17,7 @@ export class JobsComponent extends AbstractBaseListComponent {
   maxPages = 1;
   routeName = "jobs";
   routeTitle = "Jobs";
-  serviceMethod = "getJobsItems";
+  serviceMethod = "getJobsItems" as const;
 
   constructor(
     titleService: Title,

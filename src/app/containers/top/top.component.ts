@@ -17,7 +17,7 @@ export class TopComponent extends AbstractBaseListComponent {
   maxPages = 10;
   routeName = "top";
   routeTitle = "Top";
-  serviceMethod = "getTopItems";
+  serviceMethod = "getTopItems" as const;
 
   constructor(
     titleService: Title,

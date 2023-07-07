@@ -7,6 +7,13 @@ import { Config } from "../../config";
 import { FeedItem } from "../../interfaces/feed-item";
 import { ApiService } from "../../services/api.service";
 
+export type BaseListServiceMethod =
+  | "getTopItems"
+  | "getNewItems"
+  | "getShowItems"
+  | "getAskItems"
+  | "getJobsItems";
+
 @Component({
   selector: "app-abstract--base-list",
   templateUrl: "./abstract-base-list.component.html",
@@ -18,14 +25,14 @@ export class AbstractBaseListComponent implements OnInit {
   maxPages: number;
   routeName: string;
   routeTitle: string;
-  serviceMethod: string;
+  serviceMethod: BaseListServiceMethod;
 
   constructor(
     private titleService: Title,
     private apiService: ApiService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     // Update the title

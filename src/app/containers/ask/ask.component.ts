@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 
-import { AbstractBaseListComponent } from "../../components/abstract-base-list/abstract-base-list.component";
+import { AbstractBaseListComponent, BaseListServiceMethod } from "../../components/abstract-base-list/abstract-base-list.component";
 import { ApiService } from "../../services/api.service";
 
 @Component({
@@ -17,7 +17,7 @@ export class AskComponent extends AbstractBaseListComponent {
   maxPages = 2;
   routeName = "ask";
   routeTitle = "Ask";
-  serviceMethod = "getAskItems";
+  serviceMethod = "getAskItems" as const;
 
   constructor(
     titleService: Title,
