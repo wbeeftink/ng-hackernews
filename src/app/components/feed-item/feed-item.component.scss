@@ -1,30 +1,32 @@
 @use "@angular/material" as mat;
 @import "/src/variables";
 
-.mat-card {
+.mat-mdc-card-header {
   align-items: center;
-  display: flex;
-  padding: 24px 24px 24px 0;
+  padding: 24px;
 }
 
 .large-points {
+  border-radius: unset;
   color: mat.get-color-from-palette($primary);
   display: flex;
-  flex-shrink: 0;
   font-size: 20px;
   font-weight: 500;
+  height: auto;
   justify-content: center;
-  width: 90px;
+  margin-bottom: 0;
+  width: 50px;
 }
 
 .points {
   display: none;
 }
 
-.mat-card-title {
+.mat-mdc-card-title {
   color: rgba(0 0 0 / 54%);
   font-size: inherit;
   font-weight: normal;
+  line-height: normal;
 
   a {
     color: rgba(0 0 0 / 87%);
@@ -32,8 +34,13 @@
   }
 }
 
-.mat-card-subtitle {
-  margin: 0;
+.mat-mdc-card-subtitle {
+  font-weight: normal;
+  margin: 4px 0 0;
+
+  a {
+    display: inline-block;
+  }
 
   span {
     margin-right: 2px;
@@ -44,8 +51,8 @@
   }
 }
 
-@media (max-width: 399px) {
-  .mat-card {
+@media (width <= 399px) {
+  .mat-mdc-card-header {
     padding: 16px;
   }
 

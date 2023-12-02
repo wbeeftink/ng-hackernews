@@ -28,12 +28,12 @@
 
       <!-- Points -->
       <span *ngIf="item?.points">
-        {{ item?.points | i18nPlural : pointsMapping }}
+        {{ item?.points | i18nPlural: pointsMapping }}
       </span>
       |
 
       <!-- Time -->
-      <span title="Posted on {{ item?.time | date : dateFormat }}">
+      <span title="Posted on {{ item?.time | date: dateFormat }}">
         {{ item?.time_ago }}
       </span>
     </mat-card-subtitle>
@@ -55,7 +55,7 @@
 
   <!-- Comments -->
   <mat-card class="comments">
-    <h2>{{ item?.comments_count | i18nPlural : commentsMapping }}</h2>
+    <h2>{{ item?.comments_count | i18nPlural: commentsMapping }}</h2>
     <app-comment
       *ngFor="let comment of item?.comments"
       [comment]="comment"

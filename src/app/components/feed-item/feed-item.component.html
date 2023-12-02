@@ -1,13 +1,15 @@
 <mat-card>
-  <!-- Points -->
-  <span
-    class="large-points"
-    title="{{ item.points | i18nPlural : pointsMapping }}"
-  >
-    {{ item.points }}
-  </span>
+  <mat-card-header>
+    <!-- Points -->
+    <span
+      *ngIf="item.points"
+      mat-card-avatar
+      title="{{ item.points | i18nPlural: pointsMapping }}"
+      class="large-points"
+    >
+      {{ item.points }}
+    </span>
 
-  <div class="content">
     <!-- Title with domain -->
     <mat-card-title *ngIf="item.domain">
       <a [href]="item.url" target="_blank" rel="noopener">{{ item.title }}</a>
@@ -37,11 +39,11 @@
 
       <!-- Points -->
       <span class="points">
-        {{ item.points | i18nPlural : pointsMapping }} |
+        {{ item.points | i18nPlural: pointsMapping }} |
       </span>
 
       <!-- Time -->
-      <span title="Posted on {{ item.time | date : dateFormat }}">
+      <span title="Posted on {{ item.time | date: dateFormat }}">
         {{ item.time_ago }}
       </span>
       |
@@ -49,7 +51,7 @@
       <!-- Comments -->
       <span>
         <a [routerLink]="['/item', item.id]">
-          {{ item.comments_count | i18nPlural : commentsMapping }}
+          {{ item.comments_count | i18nPlural: commentsMapping }}
         </a>
       </span>
     </mat-card-subtitle>
@@ -60,5 +62,5 @@
         {{ item.time_ago }}
       </span>
     </mat-card-subtitle>
-  </div>
+  </mat-card-header>
 </mat-card>
