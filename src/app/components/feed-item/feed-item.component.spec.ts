@@ -25,8 +25,7 @@ describe("FeedItemComponent", () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, MatCardModule],
-      declarations: [FeedItemComponent],
+      imports: [FeedItemComponent, RouterTestingModule, MatCardModule],
     }).compileComponents();
   }));
 
@@ -77,7 +76,7 @@ describe("FeedItemComponent", () => {
 
     expect(subtitleElement).toBeDefined();
     expect(subtitle).toBe(
-      `By ${mockItem.user} | ${mockItem.points} points | ${mockItem.time_ago} | ${mockItem.comments_count} comments`
+      `By ${mockItem.user} | ${mockItem.points} points | ${mockItem.time_ago} | ${mockItem.comments_count} comments`,
     );
   });
 

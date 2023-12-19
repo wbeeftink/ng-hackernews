@@ -1,4 +1,9 @@
-import { TestBed, ComponentFixture, waitForAsync } from "@angular/core/testing";
+import {
+  TestBed,
+  ComponentFixture,
+  waitForAsync,
+  ComponentFixtureAutoDetect,
+} from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { MatToolbarModule } from "@angular/material/toolbar";
 
@@ -11,15 +16,19 @@ describe("AppComponent", () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, MatToolbarModule],
-      declarations: [AppComponent, HeaderComponent],
+      imports: [
+        AppComponent,
+        HeaderComponent,
+        MatToolbarModule,
+        RouterTestingModule,
+      ],
+      providers: [{ provide: ComponentFixtureAutoDetect, useValue: true }],
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.debugElement.componentInstance;
-    fixture.detectChanges();
   });
 
   it("should create the app", waitForAsync(() => {

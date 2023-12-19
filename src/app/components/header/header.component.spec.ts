@@ -1,6 +1,11 @@
 import { DebugElement } from "@angular/core";
 import { By } from "@angular/platform-browser";
-import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import {
+  ComponentFixture,
+  ComponentFixtureAutoDetect,
+  TestBed,
+  waitForAsync,
+} from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { MatToolbarModule } from "@angular/material/toolbar";
 
@@ -13,8 +18,8 @@ describe("HeaderComponent", () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, MatToolbarModule],
-      declarations: [HeaderComponent],
+      imports: [HeaderComponent, RouterTestingModule, MatToolbarModule],
+      providers: [{ provide: ComponentFixtureAutoDetect, useValue: true }],
     }).compileComponents();
   }));
 
@@ -22,7 +27,6 @@ describe("HeaderComponent", () => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     element = fixture.debugElement;
-    fixture.detectChanges();
   });
 
   it("should create", () => {

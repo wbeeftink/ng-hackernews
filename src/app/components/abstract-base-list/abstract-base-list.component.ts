@@ -1,11 +1,14 @@
-import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
+import { NgIf, NgFor, AsyncPipe } from "@angular/common";
 import { EMPTY, map, Observable, switchMap } from "rxjs";
 
 import { Config } from "../../config";
 import { FeedItem } from "../../interfaces/feed-item";
 import { ApiService } from "../../services/api.service";
+import { FeedItemComponent } from "../feed-item/feed-item.component";
+import { PaginationComponent } from "../pagination/pagination.component";
 
 export type BaseListServiceMethod =
   | "getTopItems"
@@ -19,6 +22,8 @@ export type BaseListServiceMethod =
   templateUrl: "./abstract-base-list.component.html",
   styleUrls: ["./abstract-base-list.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [NgIf, PaginationComponent, NgFor, FeedItemComponent, AsyncPipe],
 })
 export class AbstractBaseListComponent {
   readonly items$: Observable<FeedItem[]>;
@@ -32,7 +37,7 @@ export class AbstractBaseListComponent {
     private titleService: Title,
     private apiService: ApiService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
     // Update the title
     if (this.routeTitle) {
@@ -43,7 +48,7 @@ export class AbstractBaseListComponent {
     this.currentPage$ = this.route.paramMap.pipe(
       map((paramMap) => {
         return paramMap.has("page") ? Number(paramMap.get("page")) : 1;
-      })
+      }),
     );
 
     // Make the API call based on the current page
@@ -56,7 +61,7 @@ export class AbstractBaseListComponent {
           return this.apiService[this.serviceMethod](currentPage);
         }
         return EMPTY;
-      })
+      }),
     );
   }
 
