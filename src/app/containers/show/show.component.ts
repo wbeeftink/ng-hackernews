@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
-import { NgIf, NgFor, AsyncPipe } from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 
 import { AbstractBaseListComponent } from "../../components/abstract-base-list/abstract-base-list.component";
 import { ApiService } from "../../services/api.service";
@@ -17,7 +17,7 @@ import { PaginationComponent } from "../../components/pagination/pagination.comp
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf, PaginationComponent, NgFor, FeedItemComponent, AsyncPipe],
+  imports: [PaginationComponent, FeedItemComponent, AsyncPipe],
 })
 export class ShowComponent extends AbstractBaseListComponent {
   maxPages = 2;

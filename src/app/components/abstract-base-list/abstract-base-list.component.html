@@ -1,14 +1,13 @@
-<app-pagination
-  *ngIf="currentPage$ | async as currentPage"
-  (previous)="goToPage($event)"
-  (next)="goToPage($event)"
-  [currentPage]="currentPage"
-  [maxPages]="maxPages"
-></app-pagination>
-
+@if (currentPage$ | async; as currentPage) {
+  <app-pagination
+    (previous)="goToPage($event)"
+    (next)="goToPage($event)"
+    [currentPage]="currentPage"
+    [maxPages]="maxPages"
+  ></app-pagination>
+}
 <div class="container">
-  <app-feed-item
-    *ngFor="let item of items$ | async"
-    [item]="item"
-  ></app-feed-item>
+  @for (item of items$ | async; track item) {
+    <app-feed-item [item]="item"></app-feed-item>
+  }
 </div>

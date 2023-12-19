@@ -6,14 +6,11 @@
     </a>
 
     <!-- Navigation items -->
-    <a
-      *ngFor="let navItem of navItems"
-      [routerLink]="navItem.link"
-      routerLinkActive="active"
-      mat-button
-    >
-      {{ navItem.title }}
-    </a>
+    @for (navItem of navItems; track navItem) {
+      <a [routerLink]="navItem.link" routerLinkActive="active" mat-button>
+        {{ navItem.title }}
+      </a>
+    }
 
     <a
       mat-button

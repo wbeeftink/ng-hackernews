@@ -1,48 +1,50 @@
-<div *ngIf="user$ | async as user" class="container">
-  <mat-card>
-    <!-- Title -->
-    <mat-card-title>
-      {{ user.id }}
-    </mat-card-title>
+@if (user$ | async; as user) {
+  <div class="container">
+    <mat-card>
+      <!-- Title -->
+      <mat-card-title>
+        {{ user.id }}
+      </mat-card-title>
+      <!-- Subtitle -->
+      <mat-card-subtitle>
+        <span>Karma: {{ user.karma }}</span>
+        <span class="separator">|</span>
+        <span title="Created on {{ user.created_time | date: dateFormat }}">
+          Created: {{ user.created }}
+        </span>
+      </mat-card-subtitle>
+    </mat-card>
+    <mat-card>
+      <!-- About -->
+      @if (user?.about) {
+        <section class="about">
+          <h2>About</h2>
+          <div [innerHTML]="user.about" class="content"></div>
+        </section>
+      }
 
-    <!-- Subtitle -->
-    <mat-card-subtitle>
-      <span>Karma: {{ user.karma }}</span>
-      |
-      <span title="Created on {{ user.created_time | date: dateFormat }}">
-        Created: {{ user.created }}
-      </span>
-    </mat-card-subtitle>
-  </mat-card>
-
-  <mat-card>
-    <!-- About -->
-    <section *ngIf="user?.about" class="about">
-      <h2>About</h2>
-      <div [innerHTML]="user.about" class="content"></div>
-    </section>
-
-    <!-- External links -->
-    <section class="links">
-      <h2>Links</h2>
-      <ul>
-        <li>
-          <a
-            href="https://news.ycombinator.com/submitted?id={{ user.id }}"
-            target="_blank"
-          >
-            Submissions
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://news.ycombinator.com/threads?id={{ user.id }}"
-            target="_blank"
-          >
-            Comments
-          </a>
-        </li>
-      </ul>
-    </section>
-  </mat-card>
-</div>
+      <!-- External links -->
+      <section class="links">
+        <h2>Links</h2>
+        <ul>
+          <li>
+            <a
+              href="https://news.ycombinator.com/submitted?id={{ user.id }}"
+              target="_blank"
+            >
+              Submissions
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://news.ycombinator.com/threads?id={{ user.id }}"
+              target="_blank"
+            >
+              Comments
+            </a>
+          </li>
+        </ul>
+      </section>
+    </mat-card>
+  </div>
+}

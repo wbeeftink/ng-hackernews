@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { MatCardModule } from "@angular/material/card";
-import { NgIf, AsyncPipe, DatePipe } from "@angular/common";
+import { AsyncPipe, DatePipe } from "@angular/common";
 
 import { Config } from "../../config";
 import { User } from "../../interfaces/user";
@@ -15,7 +15,7 @@ import { Observable, switchMap, tap } from "rxjs";
   styleUrls: ["./user.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf, MatCardModule, AsyncPipe, DatePipe],
+  imports: [MatCardModule, AsyncPipe, DatePipe],
 })
 export class UserComponent {
   readonly user$: Observable<User>;

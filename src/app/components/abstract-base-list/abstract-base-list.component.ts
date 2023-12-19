@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
-import { NgIf, NgFor, AsyncPipe } from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 import { EMPTY, map, Observable, switchMap } from "rxjs";
 
 import { Config } from "../../config";
@@ -23,7 +23,7 @@ export type BaseListServiceMethod =
   styleUrls: ["./abstract-base-list.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf, PaginationComponent, NgFor, FeedItemComponent, AsyncPipe],
+  imports: [PaginationComponent, FeedItemComponent, AsyncPipe],
 })
 export class AbstractBaseListComponent {
   readonly items$: Observable<FeedItem[]>;
