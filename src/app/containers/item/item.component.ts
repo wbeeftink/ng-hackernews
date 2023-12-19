@@ -2,13 +2,7 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { ActivatedRoute, RouterLink } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { MatCardModule } from "@angular/material/card";
-import {
-  NgIf,
-  NgFor,
-  AsyncPipe,
-  DatePipe,
-  I18nPluralPipe,
-} from "@angular/common";
+import { AsyncPipe, DatePipe, I18nPluralPipe } from "@angular/common";
 
 import { Config } from "../../config";
 import { Item } from "../../interfaces/item";
@@ -23,10 +17,8 @@ import { CommentComponent } from "../../components/comment/comment.component";
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    NgIf,
     MatCardModule,
     RouterLink,
-    NgFor,
     CommentComponent,
     AsyncPipe,
     DatePipe,
