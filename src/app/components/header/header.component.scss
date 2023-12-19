@@ -34,18 +34,18 @@ a {
   margin-left: auto;
 }
 
-@media (max-width: 599px) {
+@media (width <= 599px) {
   .made-by {
     display: none;
   }
 }
 
-@media (max-width: 399px) {
+@media (width <= 399px) {
   .logo {
     margin-right: 7px;
   }
 
-  .mat-button {
+  .mat-mdc-button {
     padding: 0 8px;
     line-height: 32px;
     min-width: 0;

@@ -1,7 +1,7 @@
 .item {
   padding: 24px;
 
-  .mat-card-title {
+  .mat-mdc-card-title {
     color: rgba(0 0 0 / 54%);
 
     a {
@@ -10,8 +10,13 @@
     }
   }
 
-  .mat-card-subtitle {
+  .mat-mdc-card-subtitle {
+    font-weight: normal;
     margin: 0;
+
+    a {
+      display: inline-block;
+    }
 
     span {
       margin-right: 2px;

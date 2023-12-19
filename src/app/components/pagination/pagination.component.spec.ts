@@ -12,8 +12,7 @@ describe("PaginationComponent", () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [MatIconModule],
-      declarations: [PaginationComponent],
+      imports: [PaginationComponent, MatIconModule],
     }).compileComponents();
   }));
 
@@ -32,8 +31,9 @@ describe("PaginationComponent", () => {
     component.maxPages = 10;
     fixture.detectChanges();
 
-    const textElement = element.query(By.css("span"))
+    const textElement = element.query(By.css(".pages"))
       .nativeElement as HTMLElement;
+
     const text = textElement.textContent!.trim();
 
     expect(text).toBe("1 / 10");

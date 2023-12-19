@@ -3,11 +3,11 @@
 
   > * + * {
     display: block;
-    margin-top: 1vh;
+    margin-top: 1.5vh;
   }
 }
 
-@media (max-width: 599px) {
+@media (width <= 599px) {
   .container {
     margin-top: 56px;
   }

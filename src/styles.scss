@@ -33,7 +33,7 @@ pre {
   }
 }
 
-@media (max-width: 599px) {
+@media (width <= 599px) {
   body {
     padding: calc(2vh + 58px) 16px 2vh;
   }

@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
-import { Config } from "../../config";
+import { NgIf, NgFor, DatePipe } from "@angular/common";
+import { RouterLink } from "@angular/router";
 
+import { Config } from "../../config";
 import { Item } from "../../interfaces/item";
 
 @Component({
@@ -8,6 +10,8 @@ import { Item } from "../../interfaces/item";
   templateUrl: "./comment.component.html",
   styleUrls: ["./comment.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [RouterLink, NgIf, NgFor, DatePipe],
 })
 export class CommentComponent {
   @Input()

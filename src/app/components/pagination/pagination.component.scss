@@ -16,7 +16,7 @@
   width: 100%;
   z-index: 100;
 
-  @media (min-width: 599px) {
+  @media (width >= 599px) {
     height: 64px;
     top: 64px;
   }
@@ -26,7 +26,7 @@ span {
   margin: 0 15px;
 }
 
-@media (max-width: 399px) {
+@media (width <= 399px) {
   span {
     margin: 0 10px;
   }

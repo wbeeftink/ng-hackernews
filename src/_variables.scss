@@ -2,4 +2,15 @@
 
 $primary: mat.define-palette(mat.$orange-palette, A700);
 $accent: mat.define-palette(mat.$teal-palette);
-$theme: mat.define-light-theme($primary, $accent);
+$warn: mat.define-palette(mat.$red-palette);
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);

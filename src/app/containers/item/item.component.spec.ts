@@ -1,4 +1,9 @@
-import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import {
+  ComponentFixture,
+  ComponentFixtureAutoDetect,
+  TestBed,
+  waitForAsync,
+} from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { MatIconModule } from "@angular/material/icon";
@@ -15,19 +20,21 @@ describe("ItemComponent", () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        CommentComponent,
         HttpClientTestingModule,
+        ItemComponent,
         MatCardModule,
         MatIconModule,
+        PaginationComponent,
+        RouterTestingModule,
       ],
-      declarations: [ItemComponent, PaginationComponent, CommentComponent],
+      providers: [{ provide: ComponentFixtureAutoDetect, useValue: true }],
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ItemComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it("should create", () => {

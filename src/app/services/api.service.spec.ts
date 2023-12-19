@@ -101,7 +101,7 @@ describe("ApiService", () => {
         const mockReq = httpMock.expectOne(`${API}/${object.path}?page=1`);
         expect(mockReq.cancelled).toBeFalsy();
         expect(mockReq.request.responseType).toEqual("json");
-      }
+      },
     ));
   });
 
@@ -118,7 +118,7 @@ describe("ApiService", () => {
         const mockReq = httpMock.expectOne(`${API}/${object.path}?page=2`);
         expect(mockReq.cancelled).toBeFalsy();
         expect(mockReq.request.responseType).toEqual("json");
-      }
+      },
     ));
   });
 
@@ -134,7 +134,7 @@ describe("ApiService", () => {
       const mockReq = httpMock.expectOne(`${API}/item/${mockItem.id}`);
       expect(mockReq.cancelled).toBeFalsy();
       expect(mockReq.request.responseType).toEqual("json");
-    }
+    },
   ));
 
   it("should get user", inject(
@@ -148,7 +148,7 @@ describe("ApiService", () => {
       const mockReq = httpMock.expectOne(`${API}/user/${mockUser.id}`);
       expect(mockReq.cancelled).toBeFalsy();
       expect(mockReq.request.responseType).toEqual("json");
-    }
+    },
   ));
 
   it("should get user using new api", inject(
@@ -160,10 +160,10 @@ describe("ApiService", () => {
       });
 
       const mockReq = httpMock.expectOne(
-        `https://hacker-news.firebaseio.com/v0/user/${mockUser.id}.json`
+        `https://hacker-news.firebaseio.com/v0/user/${mockUser.id}.json`,
       );
       expect(mockReq.cancelled).toBeFalsy();
       expect(mockReq.request.responseType).toEqual("json");
-    }
+    },
   ));
 });

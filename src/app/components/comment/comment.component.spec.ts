@@ -54,8 +54,7 @@ describe("CommentComponent", () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [CommentComponent],
+      imports: [CommentComponent, RouterTestingModule],
     }).compileComponents();
   }));
 

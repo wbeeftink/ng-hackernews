@@ -1,4 +1,8 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { MatButtonModule } from "@angular/material/button";
+import { NgFor } from "@angular/common";
+import { RouterLink, RouterLinkActive } from "@angular/router";
+import { MatToolbarModule } from "@angular/material/toolbar";
 
 import { NavItem } from "../../interfaces/nav-item";
 
@@ -7,9 +11,17 @@ import { NavItem } from "../../interfaces/nav-item";
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    MatButtonModule,
+    MatToolbarModule,
+    NgFor,
+    RouterLink,
+    RouterLinkActive,
+  ],
 })
 export class HeaderComponent {
-  navItems: NavItem[] = [
+  readonly navItems: NavItem[] = [
     { title: "Top", link: "top" },
     { title: "New", link: "new" },
     { title: "Show", link: "show" },

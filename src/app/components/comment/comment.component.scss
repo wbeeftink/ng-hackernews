@@ -12,6 +12,10 @@
   font-weight: normal;
 }
 
+.user a {
+  display: inline-block;
+}
+
 span {
   margin-right: 2px;
 }
@@ -24,7 +28,7 @@ span + span {
   margin-bottom: 24px;
 }
 
-@media (max-width: 399px) {
+@media (width <= 399px) {
   .thread .thread {
     padding-left: 12px;
   }
