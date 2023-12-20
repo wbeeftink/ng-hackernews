@@ -15,7 +15,7 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
             "outputPath": "dist/ng-hackernews",
             "index": "src/index.html",
@@ -36,6 +36,9 @@
               },
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
