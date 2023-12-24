@@ -1,10 +1,12 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatIconModule } from "@angular/material/icon";
 
 import { NavItem } from "../../interfaces/nav-item";
+import { Theme, ThemeService } from "src/app/services/theme.service";
 
 @Component({
   selector: "app-header",
@@ -12,7 +14,14 @@ import { NavItem } from "../../interfaces/nav-item";
   styleUrls: ["./header.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [MatButtonModule, MatToolbarModule, RouterLink, RouterLinkActive],
+  imports: [
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    NgFor,
+    RouterLink,
+    RouterLinkActive,
+  ],
 })
 export class HeaderComponent {
   readonly navItems: NavItem[] = [
@@ -22,4 +31,16 @@ export class HeaderComponent {
     { title: "Ask", link: "ask" },
     { title: "Jobs", link: "jobs" },
   ];
+
+  private readonly theme = inject(ThemeService);
+  readonly currentTheme = this.theme.getTheme();
+  readonly Theme = Theme;
+
+  enableDarkMode(): void {
+    this.theme.setTheme(Theme.Dark);
+  }
+
+  enableLightMode(): void {
+    this.theme.setTheme(Theme.Light);
+  }
 }
