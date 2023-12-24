@@ -5,6 +5,13 @@
       <img src="assets/logo.svg" alt="NgHackernews" />
     </a>
 
+    <!-- Dark & light mode toggle -->
+    @if (currentTheme() === Theme.Dark) {
+      <mat-icon (click)="enableLightMode()">light_mode</mat-icon>
+    } @else {
+      <mat-icon (click)="enableDarkMode()">dark_mode</mat-icon>
+    }
+
     <!-- Navigation items -->
     <a
       *ngFor="let navItem of navItems"

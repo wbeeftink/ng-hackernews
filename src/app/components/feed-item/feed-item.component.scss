@@ -1,5 +1,5 @@
 @use "@angular/material" as mat;
-@import "variables";
+@import "theme";
 
 .mat-mdc-card-header {
   align-items: center;
@@ -8,6 +8,8 @@
 
 .large-points {
   border-radius: unset;
+
+  // TODO: Get color based on light or dark scheme
   color: mat.get-color-from-palette($primary);
   display: flex;
   font-size: 20px;
@@ -23,13 +25,13 @@
 }
 
 .mat-mdc-card-title {
-  color: rgba(0 0 0 / 54%);
+  // color: rgba(0 0 0 / 54%);
   font-size: inherit;
   font-weight: normal;
   line-height: normal;
 
   a {
-    color: rgba(0 0 0 / 87%);
+    // color: rgba(0 0 0 / 87%);
     text-decoration: none;
   }
 }

@@ -1,11 +1,10 @@
 @use "@angular/material" as mat;
 
-:host {
+.mat-app-background {
   @include mat.elevation(1);
 
+  // color: rgba(0 0 0 / 54%);
   align-items: center;
-  background-color: #fff;
-  color: rgba(0 0 0 / 54%);
   display: flex;
   font-size: 14px;
   height: 56px;
