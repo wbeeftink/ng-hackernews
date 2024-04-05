@@ -6,7 +6,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 
 import { NavItem } from "../../interfaces/nav-item";
-import { Theme, ThemeService } from "src/app/services/theme.service";
+import { DarkModeService } from "../../services/dark-mode.service";
 
 @Component({
   selector: "app-header",
@@ -24,6 +24,8 @@ import { Theme, ThemeService } from "src/app/services/theme.service";
   ],
 })
 export class HeaderComponent {
+  readonly darkMode = inject(DarkModeService);
+
   readonly navItems: NavItem[] = [
     { title: "Top", link: "top" },
     { title: "New", link: "new" },
@@ -31,16 +33,4 @@ export class HeaderComponent {
     { title: "Ask", link: "ask" },
     { title: "Jobs", link: "jobs" },
   ];
-
-  private readonly theme = inject(ThemeService);
-  readonly currentTheme = this.theme.getTheme();
-  readonly Theme = Theme;
-
-  enableDarkMode(): void {
-    this.theme.setTheme(Theme.Dark);
-  }
-
-  enableLightMode(): void {
-    this.theme.setTheme(Theme.Light);
-  }
 }

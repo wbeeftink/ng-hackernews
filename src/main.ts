@@ -23,6 +23,7 @@ import { environment } from "./environments/environment";
 import { AppComponent } from "./app/app.component";
 import { routes } from "./app/routes";
 import { SentryErrorHandler } from "./app/sentry";
+import { DarkModeService } from "./app/services/dark-mode.service";
 
 if (environment.production) {
   enableProdMode();
@@ -43,6 +44,7 @@ bootstrapApplication(AppComponent, {
     provideHttpClient(withInterceptorsFromDi()),
     provideRouter(routes),
     Title,
+    DarkModeService,
     {
       provide: ErrorHandler,
       useClass: environment.production ? SentryErrorHandler : ErrorHandler,
