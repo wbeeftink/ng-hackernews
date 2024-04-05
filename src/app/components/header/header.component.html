@@ -6,10 +6,10 @@
     </a>
 
     <!-- Dark & light mode toggle -->
-    @if (currentTheme() === Theme.Dark) {
-      <mat-icon (click)="enableLightMode()">light_mode</mat-icon>
+    @if (darkMode.isEnabled()) {
+      <mat-icon (click)="darkMode.disable()">light_mode</mat-icon>
     } @else {
-      <mat-icon (click)="enableDarkMode()">dark_mode</mat-icon>
+      <mat-icon (click)="darkMode.enable()">dark_mode</mat-icon>
     }
 
     <!-- Navigation items -->
