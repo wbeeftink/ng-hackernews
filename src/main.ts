@@ -9,10 +9,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { provideRouter } from "@angular/router";
-import {
-  withInterceptorsFromDi,
-  provideHttpClient,
-} from "@angular/common/http";
+import { withInterceptorsFromDi, provideHttpClient } from "@angular/common/http";
 import {
   Title,
   BrowserModule,
