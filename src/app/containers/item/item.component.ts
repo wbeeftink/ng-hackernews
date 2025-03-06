@@ -11,19 +11,18 @@ import { map, filter, switchMap, Observable, tap } from "rxjs";
 import { CommentComponent } from "../../components/comment/comment.component";
 
 @Component({
-  selector: "app-item",
-  templateUrl: "./item.component.html",
-  styleUrls: ["./item.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    MatCardModule,
-    RouterLink,
-    CommentComponent,
-    AsyncPipe,
-    DatePipe,
-    I18nPluralPipe,
-  ],
+    selector: "app-item",
+    templateUrl: "./item.component.html",
+    styleUrls: ["./item.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        MatCardModule,
+        RouterLink,
+        CommentComponent,
+        AsyncPipe,
+        DatePipe,
+        I18nPluralPipe,
+    ]
 })
 export class ItemComponent {
   readonly item$: Observable<Item>;

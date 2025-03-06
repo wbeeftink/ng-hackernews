@@ -10,12 +10,11 @@ import { ApiService } from "../../services/api.service";
 import { Observable, switchMap, tap } from "rxjs";
 
 @Component({
-  selector: "app-user",
-  templateUrl: "./user.component.html",
-  styleUrls: ["./user.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [MatCardModule, AsyncPipe, DatePipe],
+    selector: "app-user",
+    templateUrl: "./user.component.html",
+    styleUrls: ["./user.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [MatCardModule, AsyncPipe, DatePipe]
 })
 export class UserComponent {
   readonly user$: Observable<User>;

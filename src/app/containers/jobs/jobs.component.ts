@@ -9,15 +9,13 @@ import { FeedItemComponent } from "../../components/feed-item/feed-item.componen
 import { PaginationComponent } from "../../components/pagination/pagination.component";
 
 @Component({
-  selector: "app-jobs",
-  templateUrl:
-    "../../components/abstract-base-list/abstract-base-list.component.html",
-  styleUrls: [
-    "../../components/abstract-base-list/abstract-base-list.component.scss",
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [PaginationComponent, FeedItemComponent, AsyncPipe],
+    selector: "app-jobs",
+    templateUrl: "../../components/abstract-base-list/abstract-base-list.component.html",
+    styleUrls: [
+        "../../components/abstract-base-list/abstract-base-list.component.scss",
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [PaginationComponent, FeedItemComponent, AsyncPipe]
 })
 export class JobsComponent extends AbstractBaseListComponent {
   maxPages = 1;

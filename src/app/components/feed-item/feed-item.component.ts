@@ -7,12 +7,11 @@ import { Config } from "../../config";
 import { FeedItem } from "../../interfaces/feed-item";
 
 @Component({
-  selector: "app-feed-item",
-  templateUrl: "./feed-item.component.html",
-  styleUrls: ["./feed-item.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [MatCardModule, RouterLink, DatePipe, I18nPluralPipe],
+    selector: "app-feed-item",
+    templateUrl: "./feed-item.component.html",
+    styleUrls: ["./feed-item.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [MatCardModule, RouterLink, DatePipe, I18nPluralPipe]
 })
 export class FeedItemComponent {
   @Input()
