@@ -1,5 +1,5 @@
 @use "@angular/material" as mat;
-@import "variables";
+@use "variables" as variables;
 
 .mat-mdc-card-header {
   align-items: center;
@@ -8,7 +8,7 @@
 
 .large-points {
   border-radius: unset;
-  color: mat.m2-get-color-from-palette($primary);
+  color: mat.m2-get-color-from-palette(variables.$primary);
   display: flex;
   font-size: 20px;
   font-weight: 500;

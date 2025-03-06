@@ -21,9 +21,7 @@
               "base": "dist/ng-hackernews"
             },
             "index": "src/index.html",
-            "polyfills": [
-              "src/polyfills.ts"
-            ],
+            "polyfills": ["src/polyfills.ts"],
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -68,7 +66,7 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "serviceWorker": true
+              "serviceWorker": "ngsw-config.json"
             }
           },
           "defaultConfiguration": ""
