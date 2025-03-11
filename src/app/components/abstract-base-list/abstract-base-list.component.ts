@@ -18,12 +18,11 @@ export type BaseListServiceMethod =
   | "getJobsItems";
 
 @Component({
-  selector: "app-abstract--base-list",
-  templateUrl: "./abstract-base-list.component.html",
-  styleUrls: ["./abstract-base-list.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [PaginationComponent, FeedItemComponent, AsyncPipe],
+    selector: "app-abstract--base-list",
+    templateUrl: "./abstract-base-list.component.html",
+    styleUrls: ["./abstract-base-list.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [PaginationComponent, FeedItemComponent, AsyncPipe]
 })
 export class AbstractBaseListComponent {
   readonly items$: Observable<FeedItem[]>;

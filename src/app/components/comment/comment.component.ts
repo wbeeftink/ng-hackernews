@@ -6,12 +6,11 @@ import { Config } from "../../config";
 import { Item } from "../../interfaces/item";
 
 @Component({
-  selector: "app-comment",
-  templateUrl: "./comment.component.html",
-  styleUrls: ["./comment.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [RouterLink, DatePipe],
+    selector: "app-comment",
+    templateUrl: "./comment.component.html",
+    styleUrls: ["./comment.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [RouterLink, DatePipe]
 })
 export class CommentComponent {
   @Input()

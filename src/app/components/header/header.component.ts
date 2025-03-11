@@ -7,12 +7,11 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { NavItem } from "../../interfaces/nav-item";
 
 @Component({
-  selector: "app-header",
-  templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [MatButtonModule, MatToolbarModule, RouterLink, RouterLinkActive],
+    selector: "app-header",
+    templateUrl: "./header.component.html",
+    styleUrls: ["./header.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [MatButtonModule, MatToolbarModule, RouterLink, RouterLinkActive]
 })
 export class HeaderComponent {
   readonly navItems: NavItem[] = [
