@@ -15,7 +15,6 @@ export const API = "https://node-hnapi.herokuapp.com";
 export class ApiService {
   private http = inject(HttpClient);
 
-
   getTopItems(page: number = 1): Observable<FeedItem[]> {
     return this.http.get<FeedItem[]>(`${API}/news?page=${page}`);
   }
