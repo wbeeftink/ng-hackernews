@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { AsyncPipe } from "@angular/common";
@@ -25,6 +25,11 @@ export type BaseListServiceMethod =
     imports: [PaginationComponent, FeedItemComponent, AsyncPipe]
 })
 export class AbstractBaseListComponent {
+  private titleService = inject(Title);
+  private apiService = inject(ApiService);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
   readonly items$: Observable<FeedItem[]>;
   readonly currentPage$: Observable<number>;
   maxPages!: number;
@@ -32,12 +37,7 @@ export class AbstractBaseListComponent {
   routeTitle!: string;
   serviceMethod!: BaseListServiceMethod;
 
-  constructor(
-    private titleService: Title,
-    private apiService: ApiService,
-    private router: Router,
-    private route: ActivatedRoute,
-  ) {
+  constructor() {
     // Update the title
     if (this.routeTitle) {
       this.titleService.setTitle(Config.getTitle(this.routeTitle));

@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 import { Observable } from "rxjs";
@@ -13,7 +13,8 @@ export const API = "https://node-hnapi.herokuapp.com";
   providedIn: "root",
 })
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
+
 
   getTopItems(page: number = 1): Observable<FeedItem[]> {
     return this.http.get<FeedItem[]>(`${API}/news?page=${page}`);

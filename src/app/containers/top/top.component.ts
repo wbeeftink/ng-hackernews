@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { AsyncPipe } from "@angular/common";
@@ -9,13 +9,14 @@ import { FeedItemComponent } from "../../components/feed-item/feed-item.componen
 import { PaginationComponent } from "../../components/pagination/pagination.component";
 
 @Component({
-    selector: "app-top",
-    templateUrl: "../../components/abstract-base-list/abstract-base-list.component.html",
-    styleUrls: [
-        "../../components/abstract-base-list/abstract-base-list.component.scss",
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [PaginationComponent, FeedItemComponent, AsyncPipe]
+  selector: "app-top",
+  templateUrl:
+    "../../components/abstract-base-list/abstract-base-list.component.html",
+  styleUrls: [
+    "../../components/abstract-base-list/abstract-base-list.component.scss",
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [PaginationComponent, FeedItemComponent, AsyncPipe],
 })
 export class TopComponent extends AbstractBaseListComponent {
   maxPages = 10;
@@ -23,12 +24,7 @@ export class TopComponent extends AbstractBaseListComponent {
   routeTitle = "Top";
   serviceMethod = "getTopItems" as const;
 
-  constructor(
-    titleService: Title,
-    apiService: ApiService,
-    router: Router,
-    route: ActivatedRoute,
-  ) {
-    super(titleService, apiService, router, route);
+  constructor() {
+    super();
   }
 }
