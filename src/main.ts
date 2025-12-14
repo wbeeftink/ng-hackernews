@@ -2,6 +2,7 @@ import {
   enableProdMode,
   ErrorHandler,
   importProvidersFrom,
+  provideZoneChangeDetection
 } from "@angular/core";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { MatIconModule } from "@angular/material/icon";
@@ -27,7 +28,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(
+    provideZoneChangeDetection(),importProvidersFrom(
       BrowserModule,
       MatButtonModule,
       MatCardModule,
