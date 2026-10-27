@@ -16,7 +16,7 @@
     </mat-card>
     <mat-card>
       <!-- About -->
-      @if (user?.about) {
+      @if (user.about) {
         <section class="about">
           <h2>About</h2>
           <div [innerHTML]="user.about" class="content"></div>

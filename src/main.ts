@@ -2,6 +2,7 @@ import {
   enableProdMode,
   ErrorHandler,
   importProvidersFrom,
+  provideZoneChangeDetection,
 } from "@angular/core";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { MatIconModule } from "@angular/material/icon";
@@ -9,7 +10,11 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { provideRouter } from "@angular/router";
-import { withInterceptorsFromDi, provideHttpClient } from "@angular/common/http";
+import {
+  withInterceptorsFromDi,
+  provideHttpClient,
+  withXhr,
+} from "@angular/common/http";
 import {
   Title,
   BrowserModule,
@@ -27,6 +32,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent, {
   providers: [
+    provideZoneChangeDetection(),
     importProvidersFrom(
       BrowserModule,
       MatButtonModule,
@@ -37,7 +43,7 @@ bootstrapApplication(AppComponent, {
         enabled: environment.production,
       }),
     ),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withXhr(), withInterceptorsFromDi()),
     provideRouter(routes),
     Title,
     {
