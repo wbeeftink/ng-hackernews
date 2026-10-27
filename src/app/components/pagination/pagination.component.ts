@@ -1,19 +1,12 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ChangeDetectionStrategy,
-} from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 
 @Component({
-    selector: "app-pagination",
-    templateUrl: "./pagination.component.html",
-    styleUrls: ["./pagination.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatButtonModule, MatIconModule]
+  selector: "app-pagination",
+  templateUrl: "./pagination.component.html",
+  styleUrls: ["./pagination.component.scss"],
+  imports: [MatButtonModule, MatIconModule],
 })
 export class PaginationComponent {
   @Input()

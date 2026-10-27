@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { DatePipe, I18nPluralPipe } from "@angular/common";
 import { MatCardModule } from "@angular/material/card";
@@ -7,11 +7,10 @@ import { Config } from "../../config";
 import { FeedItem } from "../../interfaces/feed-item";
 
 @Component({
-    selector: "app-feed-item",
-    templateUrl: "./feed-item.component.html",
-    styleUrls: ["./feed-item.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatCardModule, RouterLink, DatePipe, I18nPluralPipe]
+  selector: "app-feed-item",
+  templateUrl: "./feed-item.component.html",
+  styleUrls: ["./feed-item.component.scss"],
+  imports: [MatCardModule, RouterLink, DatePipe, I18nPluralPipe],
 })
 export class FeedItemComponent {
   @Input()

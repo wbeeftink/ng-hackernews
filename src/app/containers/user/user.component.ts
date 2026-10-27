@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { MatCardModule } from "@angular/material/card";
@@ -10,21 +10,20 @@ import { ApiService } from "../../services/api.service";
 import { Observable, switchMap, tap } from "rxjs";
 
 @Component({
-    selector: "app-user",
-    templateUrl: "./user.component.html",
-    styleUrls: ["./user.component.scss"],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [MatCardModule, AsyncPipe, DatePipe]
+  selector: "app-user",
+  templateUrl: "./user.component.html",
+  styleUrls: ["./user.component.scss"],
+  imports: [MatCardModule, AsyncPipe, DatePipe],
 })
 export class UserComponent {
+  private titleService = inject(Title);
+  private apiService = inject(ApiService);
+  private route = inject(ActivatedRoute);
+
   readonly user$: Observable<User>;
   readonly dateFormat = Config.dateFormat;
 
-  constructor(
-    private titleService: Title,
-    private apiService: ApiService,
-    private route: ActivatedRoute,
-  ) {
+  constructor() {
     this.user$ = this.route.paramMap.pipe(
       switchMap((paramMap) => {
         const name = paramMap.get("name") ?? "";
